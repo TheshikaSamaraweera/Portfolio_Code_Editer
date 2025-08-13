@@ -7,11 +7,11 @@ export default function About() {
       <p className="text-green-400">// Feel free to explore and navigate through the tabs</p>
 
       {/* Profile */}
-      <div className="mt-6 flex items-center space-x-6">
+     <div className="h-[40%] flex items-center space-x-6 border-b border-gray-700 pb-4">
         <img
-          src="https://via.placeholder.com/100"
+          src="https://interviewschool.com/wp-content/uploads/2019/07/linkedin-profiles.png"
           alt="Profile"
-          className="rounded-full border-2 border-blue-400"
+          className="rounded-full border-2 border-blue-400 w-32 h-32 shadow-lg transform transition-transform hover:scale-110 hover:shadow-xl cursor-pointer"
         />
         <div>
           <h1 className="text-white text-3xl font-bold">John Doe</h1>
@@ -34,7 +34,7 @@ export default function About() {
       </div>
 
       {/* About Section */}
-      <div className="mt-6">
+        <div className="h-[60%] overflow-y-auto p-6">
         <p className="text-green-400">/**</p>
         <p className="text-green-400"> * About Me Component</p>
         <p className="text-green-400"> * A brief introduction about myself and my journey</p>
@@ -50,6 +50,19 @@ export default function About() {
           <span className="text-blue-300">Cloud</span>.
         </p>
       </div>
+
+           {/* Quick Facts Box */}
+      <div className="absolute bottom-16 right-6 w-64 bg-gray-800 border border-gray-600 rounded-lg shadow-lg p-4 text-xs">
+        <h3 className="text-blue-400 font-bold mb-2">💡 Quick Facts</h3>
+        <ul className="list-disc pl-4 text-gray-300 space-y-1">
+          <li>Use the tabs to explore my projects</li>
+          <li>Click profile image to view LinkedIn</li>
+          <li>Download my resume for details</li>
+          <li>Dark mode friendly design</li>
+          <li>Optimized for desktop & mobile</li>
+        </ul>
+      </div>
+
     </div>
   );
 }
