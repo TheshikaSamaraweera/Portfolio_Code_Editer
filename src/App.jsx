@@ -4,10 +4,12 @@ import Tab from "./components/Tab";
 import About from "./pages/About";
 import Terminal from "./components/Terminal";
 import StatusBar from "./components/StatusBar";
+import Certificates from "./pages/Certificates";
 
 
 const fileComponents = {
   "about.jsx": <About />,
+  "certificates.jsx": <Certificates />,
 };
 
 export default function App() {

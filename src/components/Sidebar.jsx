@@ -6,6 +6,7 @@ const files = [
   { name: "about.jsx", icon: <VscFileCode /> },
   { name: "skills.jsx", icon: <VscFileCode /> },
   { name: "projects.jsx", icon: <VscFileCode /> },
+  { name: "certificates.jsx", icon: <VscFileCode /> },
 ];
 
 export default function Sidebar({ activeFile, onFileClick }) {
