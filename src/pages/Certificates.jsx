@@ -1,133 +1,181 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaCertificate, FaExternalLinkAlt, FaTimes, FaCalendarAlt, FaBuilding } from 'react-icons/fa';
 
-const certificatesData = [
-  {
-    id: 1,
-    title: "React Developer Certificate",
-    topic: "React, Hooks, SPA",
-    description: "Comprehensive course covering modern React patterns and best practices.",
-    image: "https://images.unsplash.com/photo-1584697964153-62354b72317b?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    id: 2,
-    title: "Node.js Backend Certificate",
-    topic: "API, Express, Auth",
-    description: "Built secure REST APIs with Node.js, Express, and JWT based authentication.",
-    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    id: 3,
-    title: "Cloud Fundamentals",
-    topic: "AWS, Deployments",
-    description: "Learned core AWS services and deployed scalable applications to the cloud.",
-    image: "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    id: 4,
-    title: "Database Design",
-    topic: "SQL, Schema, Indexing",
-    description: "Designed relational schemas and optimized queries for performance.",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop",
-  },
-];
+const CertificateCard = ({ cert, index, onClick }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4, delay: index * 0.1 }}
+    onClick={() => onClick(cert)}
+    className="group relative bg-[#252526]/80 backdrop-blur-sm border border-[#2b2b2c] rounded-xl overflow-hidden hover:border-[#007acc] transition-all hover:shadow-xl cursor-pointer"
+  >
+    <div className="relative h-48 overflow-hidden">
+      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10" />
+      <img
+        src={cert.image}
+        alt={cert.title}
+        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+      />
+      <div className="absolute top-4 right-4 z-20">
+        <div className="bg-[#1e1e1e]/90 backdrop-blur text-white text-xs px-3 py-1 rounded-full border border-[#333]">
+          {cert.date}
+        </div>
+      </div>
+    </div>
 
-export default function Certificates() {
-  const [selected, setSelected] = useState(null);
+    <div className="p-6">
+      <div className="flex items-center gap-2 mb-3 text-[#007acc] text-sm font-mono">
+        <FaCertificate />
+        <span>{cert.issuer}</span>
+      </div>
+
+      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#007acc] transition-colors">
+        {cert.title}
+      </h3>
+
+      <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+        {cert.topic}
+      </p>
+    </div>
+  </motion.div>
+);
+
+const CertificateModal = ({ cert, onClose }) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+    onClick={onClose}
+  >
+    <motion.div
+      initial={{ scale: 0.9, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.9, opacity: 0 }}
+      onClick={(e) => e.stopPropagation()}
+      className="bg-[#1e1e1e] border border-[#2b2b2c] rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl"
+    >
+      <div className="relative h-64">
+        <img src={cert.image} alt={cert.title} className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1e1e1e] to-transparent" />
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+        >
+          <FaTimes />
+        </button>
+      </div>
+
+      <div className="p-8 -mt-12 relative z-10">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="bg-[#007acc] text-white px-3 py-1 rounded-full text-sm font-medium">
+            {cert.issuer}
+          </span>
+          <span className="bg-[#252526] text-gray-300 px-3 py-1 rounded-full text-sm border border-[#333]">
+            {cert.date}
+          </span>
+        </div>
+
+        <h2 className="text-3xl font-bold text-white mb-4">{cert.title}</h2>
+
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-[#007acc] font-mono text-sm mb-2">TOPICS COVERED</h3>
+            <p className="text-gray-300">{cert.topic}</p>
+          </div>
+
+          <div>
+            <h3 className="text-[#007acc] font-mono text-sm mb-2">DESCRIPTION</h3>
+            <p className="text-gray-400 leading-relaxed">
+              {cert.description || "Comprehensive certification covering advanced topics and practical applications in the field."}
+            </p>
+          </div>
+
+          <div className="flex gap-4 pt-4">
+            <button className="flex-1 bg-[#007acc] hover:bg-[#0063a5] text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
+              <FaExternalLinkAlt />
+              Verify Credential
+            </button>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  </motion.div>
+);
+
+const Certificates = () => {
+  const [selectedCert, setSelectedCert] = useState(null);
+
+  const certificates = [
+    {
+      title: "Machine Learning Fundamentals",
+      issuer: "Coursera",
+      date: "2024",
+      topic: "Python, TensorFlow, Neural Networks",
+      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1200&auto=format&fit=crop",
+      description: "Mastered the basics of machine learning, including supervised and unsupervised learning, neural networks, and deep learning applications."
+    },
+    {
+      title: "React Developer Certificate",
+      issuer: "Meta",
+      date: "2024",
+      topic: "Advanced React, Hooks, Redux, Performance Optimization",
+      image: "https://images.unsplash.com/photo-1584697964153-62354b72317b?q=80&w=1200&auto=format&fit=crop",
+      description: "In-depth training on building scalable React applications, state management with Redux, and optimizing performance for production."
+    },
+    {
+      title: "AWS Solutions Architect",
+      issuer: "Amazon Web Services",
+      date: "2023",
+      topic: "Cloud Architecture, Security, Scalability",
+      image: "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1200&auto=format&fit=crop",
+      description: "Designed and deployed scalable, highly available, and fault-tolerant systems on AWS."
+    },
+    {
+      title: "Professional Scrum Master",
+      issuer: "Scrum.org",
+      date: "2023",
+      topic: "Agile Methodologies, Team Leadership",
+      image: "https://images.unsplash.com/photo-1559028006-448665bd7c7f?q=80&w=1200&auto=format&fit=crop",
+      description: "Learned the Scrum framework, team roles, events, and artifacts to effectively lead agile teams."
+    }
+  ];
 
   return (
-    <div className="text-sm">
-      <p className="text-green-400">// Certificates and Achievements</p>
-      <p className="text-green-400">// Hover a card to flip. Click to view fullscreen.</p>
+    <div className="max-w-7xl mx-auto p-8">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="mb-12"
+      >
+        <h1 className="text-4xl font-bold text-white mb-4">Certifications</h1>
+        <p className="text-gray-400">
+          Professional credentials and technical certifications.
+        </p>
+      </motion.div>
 
-      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {certificatesData.map((cert) => (
-          <CertificateCard key={cert.id} cert={cert} onOpen={() => setSelected(cert)} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {certificates.map((cert, index) => (
+          <CertificateCard
+            key={index}
+            cert={cert}
+            index={index}
+            onClick={setSelectedCert}
+          />
         ))}
       </div>
 
-      {selected && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center"
-          aria-modal="true"
-          role="dialog"
-        >
-          <div
-            className="absolute inset-0 bg-black/70"
-            onClick={() => setSelected(null)}
+      <AnimatePresence>
+        {selectedCert && (
+          <CertificateModal
+            cert={selectedCert}
+            onClose={() => setSelectedCert(null)}
           />
-          <div className="relative z-10 max-w-5xl w-[92vw] md:w-[80vw] lg:w-[70vw]">
-            <div className="bg-[#1e1e1e] border border-gray-700 rounded-lg overflow-hidden shadow-2xl">
-              <div className="flex items-center justify-between px-4 py-2 bg-gray-800 border-b border-gray-700">
-                <div className="text-xs text-gray-300 truncate pr-4">
-                  {selected.title} — {selected.topic}
-                </div>
-                <button
-                  className="text-gray-300 hover:text-white text-sm"
-                  onClick={() => setSelected(null)}
-                >
-                  ✕
-                </button>
-              </div>
-              <div className="p-3">
-                <img
-                  src={selected.image}
-                  alt={selected.title}
-                  className="w-full h-[70vh] object-contain bg-black"
-                />
-                <p className="mt-3 text-gray-300 text-xs">{selected.description}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </div>
   );
-}
+};
 
-function CertificateCard({ cert, onOpen }) {
-  return (
-    <div className="group bg-gray-900/40 border border-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow">
-      <div className="relative h-56 perspective">
-        <motion.div
-          className="absolute inset-0 preserve-3d"
-          whileHover={{ rotateY: 180 }}
-          transition={{ type: "spring", stiffness: 200, damping: 20 }}
-          style={{ transformStyle: "preserve-3d", perspective: 1000 }}
-        >
-          <div className="absolute inset-0 backface-hidden">
-            <img
-              src={cert.image}
-              alt={cert.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/30" />
-            <div className="absolute bottom-0 left-0 right-0 p-3">
-              <h3 className="text-white text-sm font-semibold truncate">{cert.title}</h3>
-              <p className="text-gray-300 text-xs truncate">{cert.topic}</p>
-            </div>
-          </div>
-
-          <div
-            className="absolute inset-0 bg-gray-800 p-3 rotateY-180 backface-hidden flex flex-col justify-between"
-            style={{ transform: "rotateY(180deg)" }}
-          >
-            <div>
-              <h3 className="text-blue-400 text-sm font-semibold">{cert.title}</h3>
-              <p className="text-gray-300 text-xs mt-1">{cert.description}</p>
-            </div>
-            <button
-              className="self-start mt-3 text-xs bg-blue-600 hover:bg-blue-500 text-white px-3 py-1 rounded"
-              onClick={onOpen}
-            >
-              View fullscreen
-            </button>
-          </div>
-        </motion.div>
-      </div>
-    </div>
-  );
-}
-
-// Tailwind helpers via global classes
-// We rely on inline styles for 3D, but add class names that match the theme 
+export default Certificates;

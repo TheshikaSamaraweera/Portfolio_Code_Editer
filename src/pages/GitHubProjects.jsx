@@ -1,334 +1,206 @@
 import React, { useState, useEffect } from 'react';
-import { VscCalendar, VscGlobe } from 'react-icons/vsc';
-import { FaBuilding, FaMapMarkerAlt, FaTwitter, FaGithub } from 'react-icons/fa';
+import { VscCalendar, VscGlobe, VscRepoForked, VscEye } from 'react-icons/vsc';
+import { FaBuilding, FaMapMarkerAlt, FaTwitter, FaGithub, FaStar } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
-// Mock components for demo
-const GitHubRepoCard = ({ repo }) => (
-  <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
-    <a href={repo.html_url} className="text-blue-400 hover:text-blue-300 font-semibold">
-      {repo.name}
-    </a>
-    <p className="text-gray-300 text-sm mt-2">{repo.description}</p>
-  </div>
-);
+const GitHubRepoCard = ({ repo, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.3, delay: index * 0.1 }}
+    className="bg-[#252526] hover:bg-[#2a2d2e] border border-[#2b2b2c] rounded-lg p-4 transition-all hover:border-[#007acc] group"
+  >
+    <div className="flex justify-between items-start mb-2">
+      <a
+        href={repo.html_url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#3794ff] font-semibold text-lg hover:underline flex items-center gap-2"
+      >
+        {repo.name}
+      </a>
+      <span className="text-xs text-gray-500 border border-gray-700 rounded-full px-2 py-0.5">
+        {repo.visibility}
+      </span>
+    </div>
 
-const GitHubLanguageChart = ({ languages }) => (
-  <div className="text-gray-400">Language stats: {Object.keys(languages).length} languages</div>
-);
+    <p className="text-gray-400 text-sm mb-4 line-clamp-2 h-10">
+      {repo.description || "No description available"}
+    </p>
 
-const GitHubActivityChart = ({ username }) => (
-  <div className="text-gray-400">Activity chart for {username}</div>
-);
-
-const GitHubStats = ({ userData, repos }) => (
-  <div className="text-gray-400">Stats loaded</div>
+    <div className="flex items-center justify-between text-xs text-gray-500 mt-auto">
+      <div className="flex items-center gap-4">
+        {repo.language && (
+          <div className="flex items-center gap-1">
+            <span className="w-2 h-2 rounded-full bg-yellow-400"></span>
+            <span>{repo.language}</span>
+          </div>
+        )}
+        <div className="flex items-center gap-1 hover:text-gray-300">
+          <FaStar />
+          <span>{repo.stargazers_count}</span>
+        </div>
+        <div className="flex items-center gap-1 hover:text-gray-300">
+          <VscRepoForked />
+          <span>{repo.forks_count}</span>
+        </div>
+      </div>
+      <div className="text-gray-600">
+        {new Date(repo.updated_at).toLocaleDateString()}
+      </div>
+    </div>
+  </motion.div>
 );
 
 const GitHubProjects = () => {
   const [userData, setUserData] = useState(null);
   const [repos, setRepos] = useState([]);
-  const [languages, setLanguages] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [githubUrl, setGithubUrl] = useState('');
 
-  // GitHub API configuration
+  const USERNAME = 'TheshikaSamaraweera';
   const GITHUB_API_BASE = 'https://api.github.com';
-  const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
-  // Set your default GitHub username here
-  const DEFAULT_USERNAME = 'TheshikaSamaraweera'; // Change this to your username
-
-  const extractUsernameFromUrl = (url) => {
-    const match = url.match(/github\.com\/([^/]+)/);
-    return match ? match[1] : null;
-  };
-
-  const fetchGitHubData = async (username) => {
-    try {
-      setLoading(true);
-      setError(null);
-
-      // Fetch user data
-      const userResponse = await fetch(`${GITHUB_API_BASE}/users/${username}`, {
-        headers: GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {}
-      });
-
-      if (!userResponse.ok) {
-        throw new Error('Failed to fetch user data');
-      }
-
-      const user = await userResponse.json();
-      setUserData(user);
-
-      // Fetch repositories
-      const reposResponse = await fetch(`${GITHUB_API_BASE}/users/${username}/repos?sort=updated&per_page=100`, {
-        headers: GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {}
-      });
-
-      if (!reposResponse.ok) {
-        throw new Error('Failed to fetch repositories');
-      }
-
-      const reposData = await reposResponse.json();
-      setRepos(reposData);
-
-      // Calculate language statistics
-      const languageStats = {};
-      for (const repo of reposData) {
-        if (repo.language) {
-          languageStats[repo.language] = (languageStats[repo.language] || 0) + 1;
-        }
-      }
-      setLanguages(languageStats);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Auto-load your profile on component mount
   useEffect(() => {
-    fetchGitHubData(DEFAULT_USERNAME);
+    const fetchGitHubData = async () => {
+      try {
+        setLoading(true);
+        const [userRes, reposRes] = await Promise.all([
+          fetch(`${GITHUB_API_BASE}/users/${USERNAME}`),
+          fetch(`${GITHUB_API_BASE}/users/${USERNAME}/repos?sort=updated&per_page=12`)
+        ]);
+
+        if (!userRes.ok || !reposRes.ok) throw new Error('Failed to fetch data');
+
+        const userData = await userRes.json();
+        const reposData = await reposRes.json();
+
+        setUserData(userData);
+        setRepos(reposData);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGitHubData();
   }, []);
-
-  // Auto-refresh data every 5 minutes
-  useEffect(() => {
-    if (userData) {
-      const interval = setInterval(() => {
-        fetchGitHubData(userData.login);
-      }, 300000); // 5 minutes
-
-      return () => clearInterval(interval);
-    }
-  }, [userData]);
-
-  const handleUrlSubmit = (e) => {
-    e.preventDefault();
-    const username = extractUsernameFromUrl(githubUrl) || githubUrl;
-    if (username) {
-      fetchGitHubData(username);
-      setGithubUrl('');
-    } else {
-      setError('Please enter a valid GitHub username or URL');
-    }
-  };
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-full">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading GitHub data...</p>
-        </div>
+      <div className="flex items-center justify-center h-full text-[#007acc]">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-current"></div>
       </div>
     );
   }
 
-  if (error && !userData) {
+  if (error) {
     return (
-      <div className="flex items-center justify-center h-full">
-        <div className="text-center max-w-md">
-          <FaGithub className="text-6xl text-gray-600 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-white mb-4">Error Loading Profile</h2>
-          <p className="text-red-400 mb-6">{error}</p>
-          <form onSubmit={handleUrlSubmit} className="space-y-4">
-            <input
-              type="text"
-              value={githubUrl}
-              onChange={(e) => setGithubUrl(e.target.value)}
-              placeholder="Enter GitHub username or URL"
-              className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
-              required
-            />
-            <button
-              type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
-            >
-              Load Profile
-            </button>
-          </form>
-        </div>
-      </div>
-    );
-  }
-
-  if (!userData) {
-    return (
-      <div className="flex items-center justify-center h-full">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+      <div className="flex flex-col items-center justify-center h-full text-red-400">
+        <p>Error: {error}</p>
       </div>
     );
   }
 
   return (
-    <div className="max-w-6xl mx-auto p-6 space-y-6">
-      {/* Header Section */}
-      <div className="bg-gray-800 rounded-lg p-6">
-        <div className="flex flex-col md:flex-row gap-6">
-          {/* Profile Picture */}
-          <div className="flex-shrink-0">
+    <div className="max-w-7xl mx-auto p-6 space-y-8 animate-fade-in">
+      {/* Profile Header */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="bg-[#252526] border border-[#2b2b2c] rounded-lg p-6"
+      >
+        <div className="flex flex-col md:flex-row gap-8 items-start">
+          <div className="relative group">
             <img
               src={userData.avatar_url}
-              alt={userData.name || userData.login}
-              className="w-48 h-48 rounded-full border-4 border-gray-700"
+              alt={userData.login}
+              className="w-32 h-32 rounded-full border-4 border-[#007acc] shadow-lg group-hover:scale-105 transition-transform duration-300"
             />
+            <div className="absolute bottom-1 right-1 w-6 h-6 bg-green-500 border-4 border-[#252526] rounded-full"></div>
           </div>
 
-          {/* Profile Details */}
-          <div className="flex-1">
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-              <div>
-                <h1 className="text-3xl font-bold text-white mb-2">
-                  {userData.name || userData.login}
-                </h1>
-                <p className="text-xl text-gray-400 mb-2">@{userData.login}</p>
-                {userData.bio && (
-                  <p className="text-gray-300 mb-4 max-w-2xl">{userData.bio}</p>
-                )}
-              </div>
-              <button className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg border border-gray-600 transition-colors">
-                Follow
-              </button>
+          <div className="flex-1 space-y-4">
+            <div>
+              <h1 className="text-3xl font-bold text-white flex items-center gap-3">
+                {userData.name}
+                <a href={userData.html_url} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white text-xl">
+                  <FaGithub />
+                </a>
+              </h1>
+              <p className="text-[#007acc] font-mono">@{userData.login}</p>
             </div>
 
-            {/* Profile Stats */}
-            <div className="flex flex-wrap gap-6 text-sm text-gray-400 mb-4">
+            <p className="text-gray-300 max-w-2xl text-lg">{userData.bio}</p>
+
+            <div className="flex flex-wrap gap-6 text-sm text-gray-400">
               {userData.company && (
-                <div className="flex items-center">
-                  <FaBuilding className="mr-2" />
-                  <span>{userData.company}</span>
+                <div className="flex items-center gap-2">
+                  <FaBuilding /> {userData.company}
                 </div>
               )}
               {userData.location && (
-                <div className="flex items-center">
-                  <FaMapMarkerAlt className="mr-2" />
-                  <span>{userData.location}</span>
+                <div className="flex items-center gap-2">
+                  <FaMapMarkerAlt /> {userData.location}
                 </div>
               )}
-              <div className="flex items-center">
-                <VscCalendar className="mr-2" />
-                <span>
-                  Joined{' '}
-                  {new Date(userData.created_at).toLocaleDateString('en-US', {
-                    month: 'long',
-                    year: 'numeric'
-                  })}
-                </span>
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex gap-4">
               {userData.blog && (
-                <a
-                  href={userData.blog}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300"
-                >
-                  <VscGlobe className="text-xl" />
+                <a href={userData.blog} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-[#007acc]">
+                  <VscGlobe /> Website
                 </a>
               )}
-              {userData.twitter_username && (
-                <a
-                  href={`https://twitter.com/${userData.twitter_username}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300"
-                >
-                  <FaTwitter className="text-xl" />
-                </a>
-              )}
-              <a
-                href={userData.html_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white"
-              >
-                <FaGithub className="text-xl" />
-              </a>
+            </div>
+
+            <div className="flex gap-8 pt-4 border-t border-[#3e3e42]">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white">{userData.public_repos}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wider">Repositories</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white">{userData.followers}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wider">Followers</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white">{userData.following}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wider">Following</div>
+              </div>
             </div>
           </div>
         </div>
+      </motion.div>
 
-        {/* Stats Bar */}
-        <div className="mt-6 pt-6 border-t border-gray-700">
-          <div className="flex gap-8 text-center">
-            <div>
-              <div className="text-2xl font-bold text-white">
-                {userData.public_repos}
-              </div>
-              <div className="text-sm text-gray-400">Repositories</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-white">
-                {userData.followers}
-              </div>
-              <div className="text-sm text-gray-400">Followers</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-white">
-                {userData.following}
-              </div>
-              <div className="text-sm text-gray-400">Following</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Change Profile Form */}
-      <div className="bg-gray-800 rounded-lg p-4">
-        <form onSubmit={handleUrlSubmit} className="flex gap-2">
-          <input
-            type="text"
-            value={githubUrl}
-            onChange={(e) => setGithubUrl(e.target.value)}
-            placeholder="Load different profile (username or URL)"
-            className="flex-1 px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
+      {/* Contribution Graph */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+        className="bg-[#252526] border border-[#2b2b2c] rounded-lg p-6 overflow-hidden"
+      >
+        <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+          <VscCalendar className="text-[#007acc]" />
+          Contribution Map
+        </h2>
+        <div className="w-full overflow-x-auto">
+          <img
+            src={`https://ghchart.rshah.org/219138/${USERNAME}`}
+            alt="Github Contribution Graph"
+            className="w-full min-w-[800px]"
           />
-          <button
-            type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
-          >
-            Load
-          </button>
-        </form>
-      </div>
-
-      {/* Repositories Section */}
-      <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold text-white">
-            {repos.length} repositories
-          </h2>
         </div>
+      </motion.div>
 
-        <div className="space-y-3">
-          {repos.map((repo) => (
-            <GitHubRepoCard key={repo.id} repo={repo} />
+      {/* Repositories Grid */}
+      <div>
+        <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+          <VscRepoForked className="text-[#007acc]" />
+          Latest Repositories
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {repos.map((repo, index) => (
+            <GitHubRepoCard key={repo.id} repo={repo} index={index} />
           ))}
         </div>
-      </div>
-
-      {/* Language Statistics */}
-      {Object.keys(languages).length > 0 && (
-        <div className="bg-gray-800 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-white mb-4">Languages</h3>
-          <GitHubLanguageChart languages={languages} />
-        </div>
-      )}
-
-      {/* GitHub Stats */}
-      <GitHubStats userData={userData} repos={repos} />
-
-      {/* Activity Chart */}
-      <div className="bg-gray-800 rounded-lg p-6">
-        <h3 className="text-lg font-semibold text-white mb-4">
-          Contribution Activity
-        </h3>
-        <GitHubActivityChart username={userData.login} />
       </div>
     </div>
   );
