@@ -20,7 +20,7 @@ export const virtualFileSystem = {
                                     'achievements.jsx': { type: 'file', editorPath: 'achievements.jsx', size: '3.1KB' },
                                     'articles.jsx': { type: 'file', editorPath: 'articles.jsx', size: '4.5KB' },
                                     'contact.jsx': { type: 'file', editorPath: 'contact.jsx', size: '2.3KB' },
-                                    'README.md': { type: 'file', size: '1.2KB' },
+                                    'README.md': { type: 'file', editorPath: 'README.md', size: '3.7KB' },
                                     'package.json': { type: 'file', size: '892B' }
                                 }
                             },

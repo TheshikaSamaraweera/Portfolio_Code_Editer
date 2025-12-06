@@ -14,6 +14,8 @@ import Articles from "./pages/Articles";
 import Contact from "./pages/Contact";
 import Header from "./components/Header";
 import Minimap from "./components/Minimap";
+import TrustDialog from "./components/TrustDialog";
+import README from "./pages/README";
 import { VscMenu } from "react-icons/vsc";
 
 const fileComponents = {
@@ -25,6 +27,7 @@ const fileComponents = {
   "skills.jsx": <Skills />,
   "articles.jsx": <Articles />,
   "contact.jsx": <Contact />,
+  "README.md": <README />,
 };
 
 export default function App() {
@@ -32,6 +35,24 @@ export default function App() {
   const [activeFile, setActiveFile] = useState("about.jsx");
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [showTrustDialog, setShowTrustDialog] = useState(false);
+
+  // Check if user has trusted in this session
+  useEffect(() => {
+    const sessionTrusted = sessionStorage.getItem('portfolio_trusted');
+    if (!sessionTrusted) {
+      setShowTrustDialog(true);
+    }
+  }, []);
+
+  const handleTrust = () => {
+    // Mark as trusted for this session
+    sessionStorage.setItem('portfolio_trusted', 'true');
+    setShowTrustDialog(false);
+
+    // Open README.md file
+    handleFileClick('README.md');
+  };
 
   // Auto-hide sidebar on mobile
   useEffect(() => {
@@ -109,6 +130,14 @@ export default function App() {
           </div>
         </div>
       </div>
+
+      {/* Trust Dialog - shows on first visit */}
+      {showTrustDialog && (
+        <TrustDialog
+          onTrust={handleTrust}
+          onClose={() => setShowTrustDialog(false)}
+        />
+      )}
     </div>
   );
 }

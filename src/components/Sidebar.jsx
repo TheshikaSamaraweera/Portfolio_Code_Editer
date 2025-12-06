@@ -1,8 +1,9 @@
 import React from "react";
-import { VscChevronDown, VscFolderOpened, VscJson, VscFileCode, VscStarFull, VscBook, VscMail, VscRocket } from "react-icons/vsc";
+import { VscChevronDown, VscFolderOpened, VscJson, VscFileCode, VscStarFull, VscBook, VscMail, VscRocket, VscMarkdown } from "react-icons/vsc";
 import { FaReact } from "react-icons/fa";
 
 const files = [
+  { name: "README.md", icon: <VscMarkdown className="text-[#519aba]" /> },
   { name: "about.jsx", icon: <FaReact className="text-[#61dafb]" /> },
   { name: "skills.jsx", icon: <VscFileCode className="text-yellow-400" /> },
   { name: "projects.jsx", icon: <VscFileCode className="text-blue-400" /> },
