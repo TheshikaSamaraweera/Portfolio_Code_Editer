@@ -97,11 +97,17 @@ export default function App() {
             {/* Minimap on the right - only for About page */}
             <Minimap show={activeFile === 'about.jsx'} />
           </div>
+
+          {/* Terminal and Status Bar - inside main content area */}
+          <div className="z-20 relative hidden md:block">
+            <Terminal
+              isOpen={terminalOpen}
+              onToggle={() => setTerminalOpen(!terminalOpen)}
+              onFileOpen={handleFileClick}
+            />
+            <StatusBar />
+          </div>
         </div>
-      </div>
-      <div className="z-20 relative hidden md:block">
-        <Terminal isOpen={terminalOpen} onToggle={() => setTerminalOpen(!terminalOpen)} />
-        <StatusBar />
       </div>
     </div>
   );
