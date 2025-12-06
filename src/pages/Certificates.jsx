@@ -106,6 +106,9 @@ const CertificateModal = ({ cert, onClose }) => (
 
 const Certificates = () => {
   const [selectedCert, setSelectedCert] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  const categories = ['All', 'Web Development', 'Cloud', 'AI/ML', 'Agile'];
 
   const certificates = [
     {
@@ -114,7 +117,8 @@ const Certificates = () => {
       date: "2024",
       topic: "Python, TensorFlow, Neural Networks",
       image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1200&auto=format&fit=crop",
-      description: "Mastered the basics of machine learning, including supervised and unsupervised learning, neural networks, and deep learning applications."
+      description: "Mastered the basics of machine learning, including supervised and unsupervised learning, neural networks, and deep learning applications.",
+      category: "AI/ML"
     },
     {
       title: "React Developer Certificate",
@@ -122,7 +126,8 @@ const Certificates = () => {
       date: "2024",
       topic: "Advanced React, Hooks, Redux, Performance Optimization",
       image: "https://images.unsplash.com/photo-1584697964153-62354b72317b?q=80&w=1200&auto=format&fit=crop",
-      description: "In-depth training on building scalable React applications, state management with Redux, and optimizing performance for production."
+      description: "In-depth training on building scalable React applications, state management with Redux, and optimizing performance for production.",
+      category: "Web Development"
     },
     {
       title: "AWS Solutions Architect",
@@ -130,7 +135,8 @@ const Certificates = () => {
       date: "2023",
       topic: "Cloud Architecture, Security, Scalability",
       image: "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1200&auto=format&fit=crop",
-      description: "Designed and deployed scalable, highly available, and fault-tolerant systems on AWS."
+      description: "Designed and deployed scalable, highly available, and fault-tolerant systems on AWS.",
+      category: "Cloud"
     },
     {
       title: "Professional Scrum Master",
@@ -138,32 +144,55 @@ const Certificates = () => {
       date: "2023",
       topic: "Agile Methodologies, Team Leadership",
       image: "https://images.unsplash.com/photo-1559028006-448665bd7c7f?q=80&w=1200&auto=format&fit=crop",
-      description: "Learned the Scrum framework, team roles, events, and artifacts to effectively lead agile teams."
+      description: "Learned the Scrum framework, team roles, events, and artifacts to effectively lead agile teams.",
+      category: "Agile"
     }
   ];
+
+  const filteredCertificates = selectedCategory === 'All'
+    ? certificates
+    : certificates.filter(cert => cert.category === selectedCategory);
 
   return (
     <div className="max-w-7xl mx-auto p-8">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-12"
+        className="mb-8"
       >
         <h1 className="text-4xl font-bold text-white mb-4">Certifications</h1>
-        <p className="text-gray-400">
+        <p className="text-gray-400 mb-6">
           Professional credentials and technical certifications.
         </p>
+
+        {/* Category Filters */}
+        <div className="flex flex-wrap gap-3">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-4 py-2 rounded-lg font-medium transition-all ${selectedCategory === category
+                ? 'bg-[#007acc] text-white shadow-lg'
+                : 'bg-[#252526] text-gray-400 hover:bg-[#2a2a2a] hover:text-white border border-[#3c3c3c]'
+                }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {certificates.map((cert, index) => (
-          <CertificateCard
-            key={index}
-            cert={cert}
-            index={index}
-            onClick={setSelectedCert}
-          />
-        ))}
+        <AnimatePresence mode="wait">
+          {filteredCertificates.map((cert, index) => (
+            <CertificateCard
+              key={`${selectedCategory}-${index}`}
+              cert={cert}
+              index={index}
+              onClick={setSelectedCert}
+            />
+          ))}
+        </AnimatePresence>
       </div>
 
       <AnimatePresence>

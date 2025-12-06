@@ -15,7 +15,7 @@ const files = [
 
 export default function Sidebar({ activeFile, onFileClick }) {
   return (
-    <div className="w-64 bg-[#252526] border-r border-[#2b2b2c] flex flex-col h-full">
+    <div className="w-64 bg-[#1e1e1e] border-r border-[#2b2b2c] flex flex-col h-full">
       <div className="p-4 text-xs text-gray-400 font-semibold tracking-wider">EXPLORER</div>
       <div className="pl-4 text-gray-400 text-sm flex items-center hover:text-gray-300 cursor-pointer">
         <VscChevronDown className="mr-1" /> PORTFOLIO

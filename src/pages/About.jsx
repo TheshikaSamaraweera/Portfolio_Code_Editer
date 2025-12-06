@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import ExperienceSection from "../components/ExperienceSection";
 
 const TypewriterText = ({ text, delay = 0 }) => {
   const [displayedText, setDisplayedText] = useState("");
@@ -56,7 +57,7 @@ export default function About() {
           }}
         />
 
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start relative z-10">
           {/* Left Column: Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -110,57 +111,91 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right Column: Info Card (No Glassmorphism) */}
+          {/* Right Column: Info Card with Code Snippet */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative bg-[#252526] border border-[#3c3c3c] rounded-lg p-8 shadow-2xl">
-              <div className="flex items-center gap-4 mb-6 border-b border-[#3c3c3c] pb-6">
-                <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#007acc]">
-                  <img
-                    src="https://interviewschool.com/wp-content/uploads/2019/07/linkedin-profiles.png"
-                    alt="Profile"
-                    className="w-full h-full object-cover"
-                  />
+            <div className="relative bg-[#252526] border border-[#3c3c3c] rounded-lg overflow-hidden shadow-2xl">
+              {/* Profile Section */}
+              <div className="p-6 border-b border-[#3c3c3c]">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#007acc]">
+                    <img
+                      src="https://interviewschool.com/wp-content/uploads/2019/07/linkedin-profiles.png"
+                      alt="Profile"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold text-white">Theshika Samaraweera</h2>
+                    <p className="text-[#007acc] text-sm">Full Stack Developer</p>
+                  </div>
                 </div>
-                <div>
-                  <h2 className="text-2xl font-bold text-white">Theshika Samaraweera</h2>
-                  <p className="text-[#007acc]">Full Stack Developer</p>
+
+                {/* Info Details */}
+                <div className="space-y-3 font-mono text-xs">
+                  <div className="flex justify-between items-center group">
+                    <span className="text-gray-500 group-hover:text-[#007acc] transition-colors">01. Location</span>
+                    <span className="text-gray-300">Sri Lanka</span>
+                  </div>
+                  <div className="flex justify-between items-center group">
+                    <span className="text-gray-500 group-hover:text-[#007acc] transition-colors">02. Experience</span>
+                    <span className="text-gray-300">3+ Years</span>
+                  </div>
+                  <div className="flex justify-between items-center group">
+                    <span className="text-gray-500 group-hover:text-[#007acc] transition-colors">03. Stack</span>
+                    <span className="text-gray-300">MERN, Next.js, AWS</span>
+                  </div>
+                  <div className="flex justify-between items-center group">
+                    <span className="text-gray-500 group-hover:text-[#007acc] transition-colors">04. Status</span>
+                    <span className="text-green-400 flex items-center gap-2">
+                      <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                      Open for work
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              <div className="space-y-4 font-mono text-sm">
-                <div className="flex justify-between items-center group">
-                  <span className="text-gray-500 group-hover:text-[#007acc] transition-colors">01. Location</span>
-                  <span className="text-gray-300">Sri Lanka</span>
+              {/* Code Snippet Window */}
+              <div className="bg-[#1e1e1e] p-4">
+                {/* Window Chrome */}
+                <div className="bg-[#2d2d30] rounded-t-lg px-3 py-2 flex items-center gap-2 mb-1">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-[#ff5f56] hover:bg-[#ff5f56]/80 transition-colors cursor-pointer"></div>
+                    <div className="w-3 h-3 rounded-full bg-[#ffbd2e] hover:bg-[#ffbd2e]/80 transition-colors cursor-pointer"></div>
+                    <div className="w-3 h-3 rounded-full bg-[#27c93f] hover:bg-[#27c93f]/80 transition-colors cursor-pointer"></div>
+                  </div>
+                  <span className="text-xs text-gray-400 ml-2 font-mono">developer.js</span>
                 </div>
-                <div className="flex justify-between items-center group">
-                  <span className="text-gray-500 group-hover:text-[#007acc] transition-colors">02. Experience</span>
-                  <span className="text-gray-300">3+ Years</span>
-                </div>
-                <div className="flex justify-between items-center group">
-                  <span className="text-gray-500 group-hover:text-[#007acc] transition-colors">03. Stack</span>
-                  <span className="text-gray-300">MERN, Next.js, AWS</span>
-                </div>
-                <div className="flex justify-between items-center group">
-                  <span className="text-gray-500 group-hover:text-[#007acc] transition-colors">04. Status</span>
-                  <span className="text-green-400 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                    Open for work
-                  </span>
+
+                {/* Code Content */}
+                <div className="bg-[#1e1e1e] rounded-b-lg p-4 font-mono text-xs leading-relaxed">
+                  <div><span className="text-[#569cd6]">const</span> <span className="text-[#4fc1ff]">user</span> <span className="text-[#d4d4d4]">=</span> <span className="text-[#d4d4d4]">{'{'}</span></div>
+                  <div className="pl-4"><span className="text-[#9cdcfe]">id</span><span className="text-[#d4d4d4]">:</span> <span className="text-[#b5cea8]">5678</span><span className="text-[#d4d4d4]">,</span></div>
+                  <div className="pl-4"><span className="text-[#9cdcfe]">username</span><span className="text-[#d4d4d4]">:</span> <span className="text-[#ce9178]">'theshika'</span><span className="text-[#d4d4d4]">,</span></div>
+                  <div className="pl-4"><span className="text-[#9cdcfe]">name</span><span className="text-[#d4d4d4]">:</span> <span className="text-[#ce9178]">'Theshika S.'</span></div>
+                  <div><span className="text-[#d4d4d4]">{'}'}</span><span className="text-[#d4d4d4]">;</span></div>
+                  <div className="mt-2"></div>
+                  <div><span className="text-[#6a9955]">// Full-stack developer</span></div>
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-[#3c3c3c]">
-                <button className="w-full bg-[#007acc] hover:bg-[#005a9e] text-white py-3 rounded-lg font-semibold transition-all transform hover:scale-[1.02] active:scale-[0.98]">
+              {/* Download Button */}
+              <div className="p-4 border-t border-[#3c3c3c]">
+                <button className="w-full bg-[#007acc] hover:bg-[#005a9e] text-white py-2.5 rounded-lg font-semibold transition-all transform hover:scale-[1.02] active:scale-[0.98] text-sm">
                   Download Resume
                 </button>
               </div>
             </div>
           </motion.div>
+        </div>
+
+        {/* Experience Section - Full Width Below */}
+        <div className="max-w-5xl mx-auto mt-8 relative z-10">
+          <ExperienceSection />
         </div>
       </div>
     </div>

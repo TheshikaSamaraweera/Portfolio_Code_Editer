@@ -3,7 +3,7 @@ import { VscFiles, VscSearch, VscSourceControl, VscDebugAlt, VscExtensions, VscA
 
 const ActivityBar = () => {
     return (
-        <div className="w-12 bg-[#333333] flex flex-col justify-between py-2 border-r border-[#2b2b2c] z-10">
+        <div className="w-12 bg-[#1e1e1e] flex flex-col justify-between py-2 border-r border-[#2b2b2c] h-full">
             <div className="flex flex-col items-center space-y-4">
                 <div className="cursor-pointer p-2 border-l-2 border-white text-white">
                     <VscFiles size={24} />

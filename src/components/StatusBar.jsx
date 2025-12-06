@@ -14,7 +14,7 @@ export default function StatusBar() {
   }, []);
 
   return (
-    <div className="flex justify-between items-center bg-[#007acc] text-white text-xs px-4 py-1">
+    <div className="flex justify-between items-center bg-[#1e1e1e] text-white text-xs px-4 py-1 border-t border-[#2b2b2c]">
       {/* Left side */}
       <div className="flex items-center space-x-4">
         <div className="flex items-center space-x-2">

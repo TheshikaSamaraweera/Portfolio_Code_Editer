@@ -175,18 +175,37 @@ const GitHubProjects = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="bg-[#252526] border border-[#2b2b2c] rounded-lg p-6 overflow-hidden"
+        className="bg-[#252526] border border-[#252526] rounded-lg p-6 overflow-hidden"
       >
         <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
           <VscCalendar className="text-[#007acc]" />
           Contribution Map
         </h2>
-        <div className="w-full overflow-x-auto">
+        <div className="w-full overflow-x-auto bg-[#252526] rounded-lg p-4">
           <img
-            src={`https://ghchart.rshah.org/219138/${USERNAME}`}
+            src={`https://ghchart.rshah.org/39d353/${USERNAME}`}
             alt="Github Contribution Graph"
             className="w-full min-w-[800px]"
+            style={{
+              filter: 'invert(1) hue-rotate(170deg)',
+              backgroundColor: 'transparent'
+            }}
           />
+        </div>
+        {/* Legend */}
+        <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#252526]">
+          <a href="https://github.com/TheshikaSamaraweera" target="_blank" rel="noopener noreferrer" className="text-xs text-[#539bf5] hover:underline">
+            Learn how we count contributions
+          </a>
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-gray-500">Less</span>
+            <div className="w-3 h-3 rounded-sm bg-[#161b22]"></div>
+            <div className="w-3 h-3 rounded-sm bg-[#0e4429]"></div>
+            <div className="w-3 h-3 rounded-sm bg-[#006d32]"></div>
+            <div className="w-3 h-3 rounded-sm bg-[#26a641]"></div>
+            <div className="w-3 h-3 rounded-sm bg-[#39d353]"></div>
+            <span className="text-xs text-gray-500">More</span>
+          </div>
         </div>
       </motion.div>
 

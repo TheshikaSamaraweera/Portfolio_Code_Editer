@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
 
 const ProjectCard = ({ title, description, tags, image, links, index }) => (
@@ -51,57 +51,87 @@ const ProjectCard = ({ title, description, tags, image, links, index }) => (
 );
 
 const Projects = () => {
+    const [selectedCategory, setSelectedCategory] = useState('All');
+
+    const categories = ['All', 'E-Commerce', 'AI', 'Productivity', 'Portfolio'];
+
     const projects = [
         {
             title: "E-Commerce Platform",
             description: "A full-featured online store with cart, checkout, and admin dashboard. Built with Next.js and Stripe.",
             tags: ["Next.js", "TypeScript", "Stripe", "Tailwind"],
             image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
-            links: { github: "#", demo: "#" }
+            links: { github: "#", demo: "#" },
+            category: "E-Commerce"
         },
         {
             title: "AI Chat Application",
             description: "Real-time chat application powered by OpenAI GPT-4. Features include voice input and code highlighting.",
             tags: ["React", "Node.js", "Socket.io", "OpenAI"],
             image: "https://images.unsplash.com/photo-1587560699334-cc4da63c2409?w=800&q=80",
-            links: { github: "#", demo: "#" }
+            links: { github: "#", demo: "#" },
+            category: "AI"
         },
         {
             title: "Task Management Tool",
             description: "Kanban-style task manager with drag-and-drop interface and team collaboration features.",
             tags: ["Vue.js", "Firebase", "Pinia"],
             image: "https://images.unsplash.com/photo-1540350394557-8d14678e7f91?w=800&q=80",
-            links: { github: "#", demo: "#" }
+            links: { github: "#", demo: "#" },
+            category: "Productivity"
         },
         {
             title: "Portfolio Website",
             description: "Modern portfolio website with VS Code theme, animations, and interactive elements.",
             tags: ["React", "Framer Motion", "Tailwind"],
             image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80",
-            links: { github: "#", demo: "#" }
+            links: { github: "#", demo: "#" },
+            category: "Portfolio"
         }
     ];
+
+    const filteredProjects = selectedCategory === 'All'
+        ? projects
+        : projects.filter(project => project.category === selectedCategory);
 
     return (
         <div className="max-w-7xl mx-auto p-8">
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mb-12"
+                className="mb-8"
             >
                 <h1 className="text-4xl font-bold text-white mb-4 flex items-center gap-3">
                     <FaCode className="text-[#007acc]" />
                     Featured Projects
                 </h1>
-                <p className="text-gray-400 text-lg">
+                <p className="text-gray-400 text-lg mb-6">
                     A showcase of my best work in web development and software engineering.
                 </p>
+
+                {/* Category Filters */}
+                <div className="flex flex-wrap gap-3">
+                    {categories.map((category) => (
+                        <button
+                            key={category}
+                            onClick={() => setSelectedCategory(category)}
+                            className={`px-4 py-2 rounded-lg font-medium transition-all ${selectedCategory === category
+                                    ? 'bg-[#007acc] text-white shadow-lg'
+                                    : 'bg-[#252526] text-gray-400 hover:bg-[#2a2a2a] hover:text-white border border-[#3c3c3c]'
+                                }`}
+                        >
+                            {category}
+                        </button>
+                    ))}
+                </div>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                {projects.map((project, index) => (
-                    <ProjectCard key={index} {...project} index={index} />
-                ))}
+                <AnimatePresence mode="wait">
+                    {filteredProjects.map((project, index) => (
+                        <ProjectCard key={`${selectedCategory}-${index}`} {...project} index={index} />
+                    ))}
+                </AnimatePresence>
             </div>
         </div>
     );

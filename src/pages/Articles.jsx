@@ -152,7 +152,7 @@ const Articles = () => {
     return (
         <div className="flex h-full">
             {/* Sidebar / Explorer */}
-            <div className="w-64 border-r border-[#2b2b2c] bg-[#1e1e1e] flex flex-col">
+            <div className="w-64 border-r border-[#2b2b2c] bg-[#333333] flex flex-col">
                 <div className="p-3 text-xs font-bold text-gray-500 uppercase tracking-wider">
                     Explorer: Articles
                 </div>
@@ -170,7 +170,7 @@ const Articles = () => {
             </div>
 
             {/* Content Area */}
-            <div className="flex-1 overflow-y-auto p-8 bg-[#1e1e1e]">
+            <div className="flex-1 overflow-y-auto p-8 bg-[#333333]">
                 <ArticleViewer article={selectedArticle} />
             </div>
         </div>
