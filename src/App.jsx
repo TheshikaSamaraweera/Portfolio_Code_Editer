@@ -12,7 +12,8 @@ import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
 import Articles from "./pages/Articles";
 import Contact from "./pages/Contact";
-import BackgroundEffect from "./components/BackgroundEffect";
+import Header from "./components/Header";
+import Minimap from "./components/Minimap";
 import { VscMenu } from "react-icons/vsc";
 
 const fileComponents = {
@@ -66,11 +67,11 @@ export default function App() {
 
   return (
     <div className="flex flex-col h-screen bg-[#1e1e1e] font-mono text-sm text-gray-200 relative overflow-hidden">
-      <BackgroundEffect activePage={activeFile} />
+      <Header />
 
       {/* Mobile Menu Button */}
       <button
-        className="md:hidden absolute top-4 left-4 z-50 p-2 bg-[#333] rounded text-white"
+        className="md:hidden absolute top-10 left-4 z-50 p-2 bg-[#333] rounded text-white"
         onClick={() => setSidebarOpen(!sidebarOpen)}
       >
         <VscMenu />
@@ -78,19 +79,23 @@ export default function App() {
 
       <div className="flex flex-1 overflow-hidden z-10 relative">
         {/* Activity Bar - Hidden on mobile */}
-        <div className="hidden md:block">
+        <div className="hidden md:block h-full">
           <ActivityBar />
         </div>
 
         {/* Sidebar - Responsive */}
-        <div className={`${sidebarOpen ? 'block' : 'hidden'} md:block absolute md:relative z-40 h-full`}>
+        <div className={`${sidebarOpen ? 'block' : 'hidden'} md:block absolute md:relative z-40 h-full flex flex-col`}>
           <Sidebar activeFile={activeFile} onFileClick={handleFileClick} />
         </div>
 
-        <div className="flex-1 flex flex-col min-w-0 bg-transparent w-full">
+        <div className="flex-1 flex flex-col min-w-0 bg-[#1e1e1e] w-full">
           <Tab tabs={activeTabs} activeTab={activeFile} onTabClick={setActiveFile} onClose={handleTabClose} />
-          <div className="flex-1 overflow-auto p-4 bg-transparent border-t border-gray-800 relative z-20">
-            {fileComponents[activeFile] || <p className="text-gray-500">// Select a file to view</p>}
+          <div className="flex-1 flex overflow-hidden bg-[var(--vscode-editor-background)] relative z-20">
+            <div className="flex-1 overflow-auto">
+              {fileComponents[activeFile] || <p className="text-gray-500 p-4">// Select a file to view</p>}
+            </div>
+            {/* Minimap on the right - only for About page */}
+            <Minimap show={activeFile === 'about.jsx'} />
           </div>
         </div>
       </div>

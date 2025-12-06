@@ -35,16 +35,16 @@ const BackgroundEffect = () => {
     return (
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
             {/* Base VS Code Dark Background */}
-            <div className="absolute inset-0 bg-[#1e1e1e]" />
+            <div className="absolute inset-0 bg-[#333333]" />
 
             {/* Subtle gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1e1e1e] via-[#252526] to-[#1e1e1e] opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#333333] via-[#252526] to-[#333333] opacity-80" />
 
             {/* Left sidebar simulation */}
             <div className="absolute left-0 top-0 bottom-0 w-12 bg-[#333333] opacity-20 border-r border-[#007acc]/10" />
 
             {/* Line numbers column */}
-            <div className="absolute left-12 top-0 bottom-0 w-16 bg-[#1e1e1e] opacity-40">
+            <div className="absolute left-12 top-0 bottom-0 w-16 bg-[#333333] opacity-40">
                 {lineNumbers.map((line) => (
                     <motion.div
                         key={line.id}
