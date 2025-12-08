@@ -78,7 +78,7 @@ export default function About() {
 
             <div className="text-gray-400 text-lg leading-relaxed mb-8 font-mono">
               <span className="text-[#569cd6]">function</span>{" "}
-              <span className="text-[#dcdcaa]">hybridEngineer</span>
+              <span className="text-[#dcdcaa]">aboutTheshika</span>
               <span className="text-[#d4d4d4]">()</span>{" "}
               <span className="text-[#d4d4d4]">{'{'}</span>
               <br />

@@ -21,9 +21,9 @@ import { VscMenu } from "react-icons/vsc";
 const fileComponents = {
   "about.jsx": <About />,
   "certificates.jsx": <Certificates />,
-  "projects.jsx": <GitHubProjects />,
+  "GitHub.jsx": <GitHubProjects />,
   "achievements.jsx": <Achievements />,
-  "my_projects.jsx": <Projects />,
+  "Projects.jsx": <Projects />,
   "skills.jsx": <Skills />,
   "articles.jsx": <Articles />,
   "contact.jsx": <Contact />,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { VscFolder, VscFolderOpened, VscFile, VscChevronRight, VscChevronDown, VscMarkdown } from 'react-icons/vsc';
+import { VscFolder, VscFolderOpened, VscMarkdown, VscChevronRight, VscChevronDown } from 'react-icons/vsc';
 
 const ArticleItem = ({ article, onSelect }) => (
     <motion.div
@@ -10,7 +10,7 @@ const ArticleItem = ({ article, onSelect }) => (
         onClick={() => onSelect(article)}
     >
         <VscMarkdown className="text-[#519aba] flex-shrink-0" />
-        <span className="truncate text-sm">{article.title}.md</span>
+        <span className="truncate text-sm">{article.title}</span>
         <span className="ml-auto text-xs text-gray-500 opacity-0 group-hover:opacity-100">{article.date}</span>
     </motion.div>
 );
@@ -105,46 +105,150 @@ const Articles = () => {
     const [selectedArticle, setSelectedArticle] = useState(null);
 
     const articles = {
-        "Web Development": [
+        "AI/ML": [
             {
-                title: "Understanding React Server Components",
-                description: "A deep dive into the architecture of React Server Components and how they change the way we build web applications.",
-                date: "Nov 15, 2024",
-                readTime: "5 min",
-                category: "React",
-                image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
-                link: "#"
+                title: "Prompt Engineering Frameworks: Complete Systems for Pro-Level AI",
+                description: "Complete frameworks for designing pro-level AI prompt systems.",
+                date: "2025-01-10",
+                readTime: "10 min",
+                category: "AI/ML",
+                image: "https://images.unsplash.com/photo-1581090700227-b8cf00c6710b?w=800&q=80",
+                link: "https://medium.com/@theshikanavod"
             },
             {
-                title: "Mastering Tailwind CSS",
-                description: "Best practices and advanced techniques for building scalable design systems with Tailwind CSS.",
-                date: "Oct 28, 2024",
+                title: "Prompt Patterns: Your Toolkit for Smarter AI Conversations",
+                description: "Essential patterns for creating efficient AI conversations.",
+                date: "2025-01-05",
                 readTime: "8 min",
-                category: "CSS",
-                image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800&q=80",
-                link: "#"
-            }
-        ],
-        "System Design": [
+                category: "AI/ML",
+                image: "https://images.unsplash.com/photo-1581090700227-b8cf00c6710b?w=800&q=80",
+                link: "https://medium.com/@theshikanavod"
+            },
             {
-                title: "Microservices vs Monolith",
-                description: "When to choose microservices architecture and when to stick with a monolithic approach.",
-                date: "Sep 10, 2024",
+                title: "Prompt Engineering for Beginners. The Art of Talking to AI Like a Pro",
+                description: "Beginner’s guide to communicating effectively with AI.",
+                date: "2025-01-02",
                 readTime: "12 min",
-                category: "Architecture",
-                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
-                link: "#"
+                category: "AI/ML",
+                image: "https://images.unsplash.com/photo-1581090700227-b8cf00c6710b?w=800&q=80",
+                link: "https://medium.com/@theshikanavod"
+            },
+            {
+                title: "Full Roadmap to Mastering AI Agents",
+                description: "Comprehensive roadmap to mastering AI agent systems.",
+                date: "2024-11-25",
+                readTime: "12 min",
+                category: "AI/ML",
+                image: "https://images.unsplash.com/photo-1581090700227-b8cf00c6710b?w=800&q=80",
+                link: "https://medium.com/@theshikanavod"
             }
         ],
-        "Career": [
+        "Backend": [
             {
-                title: "Ace Your Coding Interview",
-                description: "Tips and strategies for cracking technical interviews at top tech companies.",
-                date: "Aug 05, 2024",
-                readTime: "6 min",
-                category: "Career",
-                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
-                link: "#"
+                title: "7 Types of APIs You Must Know in 2025",
+                description: "Overview of essential APIs for backend development.",
+                date: "2024-12-28",
+                readTime: "9 min",
+                category: "Backend",
+                image: "https://images.unsplash.com/photo-1581090700227-b8cf00c6710b?w=800&q=80",
+                link: "https://medium.com/@theshikanavod"
+            }
+        ],
+        "Web": [
+            {
+                title: "Part 7: Pagination, Sorting, and Filtering — Spring Boot + React CRUD Series",
+                description: "Implement pagination, sorting, and filtering in full-stack applications.",
+                date: "2024-12-25",
+                readTime: "15 min",
+                category: "Web",
+                image: "https://images.unsplash.com/photo-1581090700227-b8cf00c6710b?w=800&q=80",
+                link: "https://medium.com/@theshikanavod"
+            },
+            {
+                title: "Part 6: Validation — Spring Boot + React CRUD Series",
+                description: "Learn validation best practices in CRUD applications.",
+                date: "2024-12-20",
+                readTime: "12 min",
+                category: "Web",
+                image: "https://images.unsplash.com/photo-1581090700227-b8cf00c6710b?w=800&q=80",
+                link: "https://medium.com/@theshikanavod"
+            },
+            {
+                title: "Part 5: Exception Handling — Spring Boot + React CRUD Series",
+                description: "Exception handling strategies for backend and frontend.",
+                date: "2024-12-18",
+                readTime: "10 min",
+                category: "Web",
+                image: "https://images.unsplash.com/photo-1581090700227-b8cf00c6710b?w=800&q=80",
+                link: "https://medium.com/@theshikanavod"
+            },
+                       {
+                title: "Part 4: Securing Your Application using Spring Security and JWT — CRUD Series",
+                description: "Secure your apps using Spring Security and JWT.",
+                date: "2024-12-15",
+                readTime: "14 min",
+                category: "web",
+                image: "https://images.unsplash.com/photo-1581090700227-b8cf00c6710b?w=800&q=80",
+                link: "https://medium.com/@theshikanavod"
+            },
+            {
+                title: "Part 3: Building a Simple To-do CRUD Application — CRUD Series",
+                description: "Step-by-step to build a simple CRUD app.",
+                date: "2024-12-12",
+                readTime: "10 min",
+                category: "Web",
+                image: "https://images.unsplash.com/photo-1581090700227-b8cf00c6710b?w=800&q=80",
+                link: "https://medium.com/@theshikanavod"
+            },
+            {
+                title: "Part 2: Building a Simple To-do CRUD Application — CRUD Series",
+                description: "Continued series for CRUD app development.",
+                date: "2024-12-10",
+                readTime: "9 min",
+                category: "Web",
+                image: "https://images.unsplash.com/photo-1581090700227-b8cf00c6710b?w=800&q=80",
+                link: "https://medium.com/@theshikanavod"
+            },
+            {
+                title: "Part 1: Understand the Core — CRUD Series",
+                description: "Understand the fundamentals of full-stack CRUD apps.",
+                date: "2024-12-05",
+                readTime: "8 min",
+                category: "Web",
+                image: "https://images.unsplash.com/photo-1581090700227-b8cf00c6710b?w=800&q=80",
+                link: "https://medium.com/@theshikanavod"
+            }
+        ],
+        "Security": [
+ 
+            {
+                title: "OAuth 2.0 for Beginners",
+                description: "Learn OAuth 2.0 for secure logins and third-party access.",
+                date: "2024-11-28",
+                readTime: "10 min",
+                category: "Security",
+                image: "https://images.unsplash.com/photo-1581090700227-b8cf00c6710b?w=800&q=80",
+                link: "https://medium.com/@theshikanavod"
+            },
+            {
+                title: "JWT for Beginners",
+                description: "Beginner’s guide to JWT and API security.",
+                date: "2024-11-20",
+                readTime: "9 min",
+                category: "Security",
+                image: "https://images.unsplash.com/photo-1581090700227-b8cf00c6710b?w=800&q=80",
+                link: "https://medium.com/@theshikanavod"
+            }
+        ],
+        "Git": [
+            {
+                title: "Mastering Git: A Beginner’s Guide to Version Control",
+                description: "Learn Git version control for efficient collaboration.",
+                date: "2024-11-15",
+                readTime: "8 min",
+                category: "Git",
+                image: "https://images.unsplash.com/photo-1581090700227-b8cf00c6710b?w=800&q=80",
+                link: "https://medium.com/@theshikanavod"
             }
         ]
     };

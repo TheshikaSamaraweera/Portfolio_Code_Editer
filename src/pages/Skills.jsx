@@ -53,8 +53,8 @@ const Skills = () => {
          {
             title: "Programming Languages",
             skills: [
-                { name: "Python", icon: FaPython, color: "text-[#3776ab]" },
                 { name: "Java", icon: FaJava, color: "text-[#f44336]" },
+                { name: "Python", icon: FaPython, color: "text-[#3776ab]" },
                 { name: "TypeScript", icon: SiTypescript, color: "text-[#3178c6]" },
                 { name: "JavaScript", icon: FaJs, color: "text-[#f7df1e]" },
             ],
