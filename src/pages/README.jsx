@@ -83,30 +83,6 @@ export default function README() {
                     </div>
                 </section>
 
-                {/* Features */}
-                <section className="mb-8">
-                    <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-                        <VscCode className="text-[#007acc]" /> Features
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="bg-[#252526] border border-[#2b2b2c] rounded-lg p-4">
-                            <h4 className="font-semibold text-white mb-2">🎨 VS Code Theme</h4>
-                            <p className="text-sm text-gray-400">Authentic Visual Studio Code dark theme with accurate colors and styling</p>
-                        </div>
-                        <div className="bg-[#252526] border border-[#2b2b2c] rounded-lg p-4">
-                            <h4 className="font-semibold text-white mb-2">💻 Interactive Terminal</h4>
-                            <p className="text-sm text-gray-400">Fully functional terminal with real command execution</p>
-                        </div>
-                        <div className="bg-[#252526] border border-[#2b2b2c] rounded-lg p-4">
-                            <h4 className="font-semibold text-white mb-2">🗺️ Minimap</h4>
-                            <p className="text-sm text-gray-400">Code minimap for quick navigation (visible on About page)</p>
-                        </div>
-                        <div className="bg-[#252526] border border-[#2b2b2c] rounded-lg p-4">
-                            <h4 className="font-semibold text-white mb-2">📐 Resizable Terminal</h4>
-                            <p className="text-sm text-gray-400">Drag the terminal handle to resize vertically</p>
-                        </div>
-                    </div>
-                </section>
 
                 {/* Sections */}
                 <section className="mb-8">

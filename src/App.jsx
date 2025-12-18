@@ -30,12 +30,15 @@ const fileComponents = {
   "README.md": <README />,
 };
 
+import ChatSidebar from "./components/ChatSidebar";
+
 export default function App() {
   const [activeTabs, setActiveTabs] = useState(["about.jsx"]);
   const [activeFile, setActiveFile] = useState("about.jsx");
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [showTrustDialog, setShowTrustDialog] = useState(false);
+  const [activeView, setActiveView] = useState("explorer"); // 'explorer' or 'chat'
 
   // Check if user has trusted in this session
   useEffect(() => {
@@ -86,6 +89,16 @@ export default function App() {
     }
   };
 
+  const handleViewChange = (view) => {
+    if (activeView === view) {
+      // Toggle sidebar if clicking same view
+      setSidebarOpen(!sidebarOpen);
+    } else {
+      setActiveView(view);
+      setSidebarOpen(true);
+    }
+  };
+
   return (
     <div className="flex flex-col h-screen bg-[#1e1e1e] font-mono text-sm text-gray-200 relative overflow-hidden">
       <Header />
@@ -101,12 +114,16 @@ export default function App() {
       <div className="flex flex-1 overflow-hidden z-10 relative">
         {/* Activity Bar - Hidden on mobile */}
         <div className="hidden md:block h-full">
-          <ActivityBar />
+          <ActivityBar activeView={activeView} onViewChange={handleViewChange} />
         </div>
 
         {/* Sidebar - Responsive */}
         <div className={`${sidebarOpen ? 'block' : 'hidden'} md:block absolute md:relative z-40 h-full flex flex-col`}>
-          <Sidebar activeFile={activeFile} onFileClick={handleFileClick} />
+          {activeView === 'explorer' ? (
+            <Sidebar activeFile={activeFile} onFileClick={handleFileClick} />
+          ) : (
+            <ChatSidebar />
+          )}
         </div>
 
         <div className="flex-1 flex flex-col min-w-0 bg-[#1e1e1e] w-full">

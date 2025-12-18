@@ -86,12 +86,12 @@ export default function About() {
               <span className="pl-4 text-[#c586c0]">return</span>{" "}
               <span className="text-[#ce9178]">
                 "
-                <span className="text-[#dcdcaa]">A hybrid engineer specializing in </span>
+                <span className="text-[#dcdcaa]">A hybrid Engineer specializing in </span>
 
                 <span className="text-[#d7ba7d] font-semibold">backend development</span>,
                 enhanced with
                 <span className="text-[#9cdcfe] font-semibold"> frontend skills</span>,
-                <span className="text-[#4ec9b0] font-semibold"> DevOps expertise</span>, and
+                <span className="text-[#4ec9b0] font-semibold"> DevOps skills</span>, and
                 high-end
                 <span className="text-[#c586c0] font-semibold"> AI engineering knowledge</span>."
               </span>
@@ -104,14 +104,14 @@ export default function About() {
 
             <div className="flex gap-6">
               <motion.a
-                href="www.linkedin.com/in/theshika-navod-a6a22a254"
+                href="https://github.com/TheshikaSamaraweera"
                 whileHover={{ scale: 1.1, color: "#ffffff" }}
                 className="text-gray-400 text-2xl transition-colors"
               >
                 <FaGithub />
               </motion.a>
               <motion.a
-                href="https://github.com/TheshikaSamaraweera"
+                href="https://linkedin.com/in/theshika-navod-a6a22a254"
                 whileHover={{ scale: 1.1, color: "#0077b5" }}
                 className="text-gray-400 text-2xl transition-colors"
               >
@@ -137,14 +137,14 @@ export default function About() {
             <div className="relative bg-[#1e1e1e] border border-[#3c3c3c] rounded-lg overflow-hidden shadow-2xl">
               {/* Profile Section */}
               {/* Window Chrome */}
-                <div className="bg-[#2d2d30] rounded-t-lg px-3 py-2 flex items-center gap-2 mb-1">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-[#ff5f56] hover:bg-[#ff5f56]/80 transition-colors cursor-pointer"></div>
-                    <div className="w-3 h-3 rounded-full bg-[#ffbd2e] hover:bg-[#ffbd2e]/80 transition-colors cursor-pointer"></div>
-                    <div className="w-3 h-3 rounded-full bg-[#27c93f] hover:bg-[#27c93f]/80 transition-colors cursor-pointer"></div>
-                  </div>
-                  <span className="text-xs text-gray-400 ml-2 font-mono">developer.js</span>
+              <div className="bg-[#2d2d30] rounded-t-lg px-3 py-2 flex items-center gap-2 mb-1">
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-[#ff5f56] hover:bg-[#ff5f56]/80 transition-colors cursor-pointer"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#ffbd2e] hover:bg-[#ffbd2e]/80 transition-colors cursor-pointer"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#27c93f] hover:bg-[#27c93f]/80 transition-colors cursor-pointer"></div>
                 </div>
+                <span className="text-xs text-gray-400 ml-2 font-mono">developer.js</span>
+              </div>
               <div className="p-6 border-b border-[#3c3c3c]">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#007acc]">
@@ -174,11 +174,11 @@ export default function About() {
                     <span className="text-whitw-500 group-hover:text-[#007acc] transition-colors">03. looking for</span>
                     <span className="text-gray-300">Backend Engineering Role</span>
                   </div>
-                                    <div className="flex justify-between items-center group">
+                  <div className="flex justify-between items-center group">
                     <span className="text-whitw-500 group-hover:text-[#007acc] transition-colors"></span>
                     <span className="text-gray-300">Full-Stack Engineering Role</span>
                   </div>
-                                    <div className="flex justify-between items-center group">
+                  <div className="flex justify-between items-center group">
                     <span className="text-whitw-500 group-hover:text-[#007acc] transition-colors"></span>
                     <span className="text-gray-300">AI Engineering Role</span>
                   </div>
@@ -206,28 +206,28 @@ export default function About() {
 
                 {/* Code Content */}
                 <div className="bg-[#1e1e1e] rounded-b-lg p-4 font-mono text-xs leading-relaxed">
-              <span className="text-[#569cd6]">function</span>{" "}
-              <span className="text-[#dcdcaa]">personalIdentity</span>
-              <span className="text-[#d4d4d4]">()</span>{" "}
-              <span className="text-[#d4d4d4]">{'{'}</span>
-              <br />
+                  <span className="text-[#569cd6]">function</span>{" "}
+                  <span className="text-[#dcdcaa]">personalIdentity</span>
+                  <span className="text-[#d4d4d4]">()</span>{" "}
+                  <span className="text-[#d4d4d4]">{'{'}</span>
+                  <br />
 
-              <span className="pl-4 text-[#c58c0]">return</span>{" "}
-              <span className="text-[#ce9178]">
-                "
-                <span className="text-[#dcdcaa]">A researcher, fast learner, hard worker,</span> and
+                  <span className="pl-4 text-[#c58c0]">return</span>{" "}
+                  <span className="text-[#ce9178]">
+                    "
+                    <span className="text-[#dcdcaa]">A researcher, fast learner, hard worker,</span> and
 
-                <span className="text-[#d7ba7d] font-semibold"> a strategic gamer</span>,
-                who
-                <span className="text-[#9cdcfe] font-semibold"> leads teams with clarity, adaptability, and purpose.</span>
-                <span className="text-[#4ec9b0] font-semibold"> Crafting scalable, reliable</span>,
-                and
-                <span className="text-[#c586c0] font-semibold"> meaningful digital solutions</span>."
-              </span>
-              <span className="text-[#d4d4d4]">;</span>
-              <br />
+                    <span className="text-[#d7ba7d] font-semibold"> a strategic gamer</span>,
+                    who
+                    <span className="text-[#9cdcfe] font-semibold"> leads teams with clarity, adaptability, and purpose.</span>
+                    <span className="text-[#4ec9b0] font-semibold"> Crafting scalable, reliable</span>,
+                    and
+                    <span className="text-[#c586c0] font-semibold"> meaningful digital solutions</span>."
+                  </span>
+                  <span className="text-[#d4d4d4]">;</span>
+                  <br />
 
-              <span className="text-[#d4d4d4]">{'}'}</span>
+                  <span className="text-[#d4d4d4]">{'}'}</span>
                 </div>
               </div>
 
