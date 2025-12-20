@@ -147,9 +147,9 @@ export default function About() {
               </div>
               <div className="p-6 border-b border-[#3c3c3c]">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#007acc]">
+                  <div className="w-32 h-32 rounded-full overflow-hidden hover:scale-125 transition-transform">
                     <img
-                      src="https://interviewschool.com/wp-content/uploads/2019/07/linkedin-profiles.png"
+                      src="../public/Theshika.png"
                       alt="Profile"
                       className="w-full h-full object-cover"
                     />

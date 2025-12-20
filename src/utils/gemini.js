@@ -1,6 +1,6 @@
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { portfolioContext } from "../data/portfolioContext";
+import { buildContext, getSystemPrompt, estimateTokens } from "./ragRetrieval";
 
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
@@ -9,45 +9,56 @@ let model = null;
 
 if (API_KEY) {
     genAI = new GoogleGenerativeAI(API_KEY);
-    // Note: There is no 'gemini-2.5-flash' yet. Using 1.5 Flash which is the current stable fast model.
-    model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    // Using Gemini 2.0 Flash which is the current stable fast model.
+    model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 }
 
+/**
+ * Send message to Gemini using RAG architecture
+ * Only sends relevant context chunks instead of the entire knowledge base
+ */
 export const sendMessageToGemini = async (history, message) => {
     if (!model) {
         if (!API_KEY) {
             return "Error: VITE_GEMINI_API_KEY is missing in .env file.";
         }
-        // Initialize if key was added late (e.g. during session)
+        // Initialize if key was added late
         genAI = new GoogleGenerativeAI(API_KEY);
-        model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
     }
 
     try {
-        // Construct the full prompt context
-        // We use a simple chat session approach or single-turn with history
-        // For 1.5 Flash, passing system instruction in the chat start is best.
+        // RAG: Retrieve only relevant context based on the user's question
+        const relevantContext = buildContext(message);
+        const systemPrompt = getSystemPrompt();
+
+        // Log token savings (for debugging - can remove in production)
+        const contextTokens = estimateTokens(relevantContext);
+        console.log(`📊 RAG: Using ~${contextTokens} tokens of context (instead of full 6000+)`);
 
         const chat = model.startChat({
             history: [
                 {
                     role: "user",
                     parts: [{
-                        text: `You are a helpful AI assistant for a developer's portfolio website. 
-                    Here is the context about the developer and their resume:
-                    ${portfolioContext}
-                    
-                    Answer questions based on this context. Be concise, professional, and friendly.
-                    If the answer isn't in the context, say you don't know but suggest they contact the developer directly.` }]
+                        text: `${systemPrompt}
+
+Here is the relevant context for answering the user's question:
+---
+${relevantContext}
+---
+
+Answer concisely based on this context.`
+                    }]
                 },
                 {
                     role: "model",
-                    parts: [{ text: "Understood. I am ready to answer questions about the developer based on the provided context." }]
+                    parts: [{ text: "Understood. I'm ready to help with questions about Theshika based on the relevant context provided." }]
                 },
                 ...history
             ],
             generationConfig: {
-                maxOutputTokens: 1000,
+                maxOutputTokens: 500, // Reduced since responses should be concise
             },
         });
 
