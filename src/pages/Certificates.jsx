@@ -150,7 +150,7 @@ const Certificates = () => {
       issuer: "Udemy",
       date: "2024",
       topic: "End-to-end agentic workflows",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
+      image: "../public/effectiveagents.jpg",
       category: "AI/ML"
     },
     {
@@ -200,7 +200,7 @@ const Certificates = () => {
       issuer: "Cyber Quince, Udemy",
       date: "2024",
       topic: "Socket programming, networking in Java",
-      image: "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d",
+      image: "../public/network app.jpg",
       category: "Backend"
     },
 
@@ -218,7 +218,7 @@ const Certificates = () => {
       issuer: "Vapa Academy, Udemy",
       date: "2024",
       topic: "Next.js, Tailwind CSS, frontend systems",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+      image: "../public/next.jpg",
       category: "Frontend"
     },
     {
@@ -226,7 +226,7 @@ const Certificates = () => {
       issuer: "Udemy",
       date: "2024",
       topic: "JavaScript, DOM, advanced JS",
-      image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4",
+      image: "../public/js.jpg",
       category: "Frontend"
     },
     {
@@ -270,7 +270,7 @@ const Certificates = () => {
       issuer: "School of Devops, Udemy",
       date: "2024",
       topic: "CI/CD pipelines, automation",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
+      image: "../public/cicd.jpg",
       category: "Cloud"
     },
 
@@ -347,11 +347,10 @@ const Certificates = () => {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                selectedCategory === category
+              className={`px-4 py-2 rounded-lg font-medium transition-all ${selectedCategory === category
                   ? 'bg-[#007acc] text-white shadow-lg'
                   : 'bg-[#252526] text-gray-400 hover:bg-[#2a2a2a] hover:text-white border border-[#3c3c3c]'
-              }`}
+                }`}
             >
               {category}
             </button>

@@ -33,33 +33,50 @@ const TimelineItem = ({ year, title, description, icon: Icon, color, index }) =>
 
 const Achievements = () => {
     const achievements = [
+
         {
-            year: "Oct 2024",
-            title: "Hackathon Winner",
-            description: "First place in the National Coding Championship 2024. Built an AI-powered accessibility tool.",
+            year: "2025",
+            title: "HackerRank – Java (Gold Level)",
+            description: "Achieved 5-star rating in Java on HackerRank, showcasing advanced proficiency in Java programming.",
+            icon: FaStar,
+            color: "text-orange-500"
+        },
+        {
+            year: "2024",
+            title: "Haxtreme 2.0 – 4th Place",
+            description: "Secured 4th place in the Haxtreme 2.0 hackathon competition.",
             icon: FaTrophy,
             color: "text-yellow-500"
         },
+
         {
-            year: "Aug 2024",
-            title: "AWS Certified Solutions Architect",
-            description: "Achieved professional certification for designing distributed systems on AWS.",
-            icon: FaCertificate,
+            year: "2024",
+            title: "IEEE INSL Competition",
+            description: "Participated in the IEEE INSL Competition, gaining valuable experience in innovation and technology.",
+            icon: FaMedal,
             color: "text-blue-500"
         },
         {
-            year: "2023",
-            title: "Open Source Contributor",
-            description: "Major contributor to React ecosystem libraries with over 500+ commits.",
+            year: "2024",
+            title: "HackerRank – Problem Solving",
+            description: "Earned 2-star (Bronze Level) Problem Solving badge on HackerRank, demonstrating algorithmic and data structure skills.",
             icon: FaStar,
             color: "text-green-500"
         },
+
         {
-            year: "June 2023",
-            title: "Best UI/UX Design",
-            description: "Awarded for the most innovative interface design in the WebDev Summit.",
-            icon: FaMedal,
+            year: "2024",
+            title: "HackerRank – 10 Days of JS",
+            description: "Completed the 10 Days of JavaScript challenge on HackerRank.",
+            icon: FaCertificate,
             color: "text-purple-500"
+        },
+        {
+            year: "2024",
+            title: "HackerRank – SQL",
+            description: "Earned SQL badge (Bronze Level) on HackerRank, demonstrating database querying proficiency.",
+            icon: FaCertificate,
+            color: "text-cyan-500"
         }
     ];
 
