@@ -38,8 +38,8 @@ export default function About() {
 
   return (
     <div className="relative min-h-full overflow-hidden flex">
-      {/* Line Numbers Column */}
-      <div className="w-12 flex-shrink-0 flex flex-col items-end pr-4 pt-8 text-[#858585] select-none bg-[#333333] border-r border-[#252526]">
+      {/* Line Numbers Column - Hidden on mobile */}
+      <div className="hidden md:flex w-12 flex-shrink-0 flex-col items-end pr-4 pt-8 text-[#858585] select-none bg-[#333333] border-r border-[#252526]">
         {Array.from({ length: lineCount }, (_, i) => (
           <div key={i} className="leading-6 text-xs">
             {i + 1}
@@ -48,7 +48,7 @@ export default function About() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 p-8">
+      <div className="flex-1 p-4 sm:p-6 md:p-8">
         {/* Dynamic Background Gradient following mouse */}
         <div
           className="fixed inset-0 pointer-events-none opacity-20"
@@ -57,7 +57,7 @@ export default function About() {
           }}
         />
 
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start relative z-10">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start relative z-10">
           {/* Left Column: Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -71,12 +71,12 @@ export default function About() {
               <span className="text-[#ce9178] font-mono text-lg">"Theshika Navod";</span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               Engineering  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#007acc] to-[#00b4d8]">Scalable</span> <br />
               Solutions
             </h1>
 
-            <div className="text-gray-400 text-lg leading-relaxed mb-8 font-mono">
+            <div className="text-gray-400 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 font-mono">
               <span className="text-[#569cd6]">function</span>{" "}
               <span className="text-[#dcdcaa]">aboutTheshika</span>
               <span className="text-[#d4d4d4]">()</span>{" "}
@@ -105,6 +105,8 @@ export default function About() {
             <div className="flex gap-6">
               <motion.a
                 href="https://github.com/TheshikaSamaraweera"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, color: "#ffffff" }}
                 className="text-gray-400 text-2xl transition-colors"
               >
@@ -112,6 +114,8 @@ export default function About() {
               </motion.a>
               <motion.a
                 href="https://linkedin.com/in/theshika-navod-a6a22a254"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, color: "#0077b5" }}
                 className="text-gray-400 text-2xl transition-colors"
               >
@@ -119,6 +123,8 @@ export default function About() {
               </motion.a>
               <motion.a
                 href="https://medium.com/@theshikanavod"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, color: "#1da1f2" }}
                 className="text-gray-400 text-2xl transition-colors"
               >
@@ -146,22 +152,22 @@ export default function About() {
                 <span className="text-xs text-gray-400 ml-2 font-mono">developer.js</span>
               </div>
               <div className="p-6 border-b border-[#3c3c3c]">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-32 h-32 rounded-full overflow-hidden hover:scale-125 transition-transform">
+                <div className="flex flex-col sm:flex-row items-center gap-4 mb-4">
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden hover:scale-110 transition-transform flex-shrink-0">
                     <img
                       src="../public/Theshika.png"
                       alt="Profile"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div>
-                    <h2 className="text-xl font-bold text-white">Theshika Samaraweera</h2>
-                    <p className="text-[#007acc] text-sm">Computer Engineer</p>
+                  <div className="text-center sm:text-left">
+                    <h2 className="text-lg sm:text-xl font-bold text-white">Theshika Samaraweera</h2>
+                    <p className="text-[#007acc] text-xs sm:text-sm">Computer Engineer</p>
                   </div>
                 </div>
 
                 {/* Info Details */}
-                <div className="space-y-3 font-mono text-xs ">
+                <div className="space-y-2 sm:space-y-3 font-mono text-[10px] sm:text-xs">
                   <div className="flex justify-between items-center group">
                     <span className="text-whitw-500 group-hover:text-[#007acc] transition-colors">01. Location</span>
                     <span className="text-gray-300">Sri Lanka</span>
@@ -231,12 +237,7 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Download Button */}
-              <div className="p-4 border-t border-[#3c3c3c]">
-                <button className="w-full bg-[#007acc] hover:bg-[#005a9e] text-white py-2.5 rounded-lg font-semibold transition-all transform hover:scale-[1.02] active:scale-[0.98] text-sm">
-                  Download Resume
-                </button>
-              </div>
+
             </div>
           </motion.div>
         </div>

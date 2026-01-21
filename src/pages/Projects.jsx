@@ -75,7 +75,7 @@ const Projects = () => {
       title: "AI Code Generator and Reviewer System",
       description: "VS Code extension automating code generation and bug detection for legacy codebases. Multi-agent reviewer system using fine-tuned LLMs detecting security vulnerabilities, code smells and performance issues with human-in-the-loop validation; reduced manual review time by ~60%.",
       tags: ["Python", "TypeScript", "LangGraph", "LLM", "VS Code API", "Fine-tuning"],
-      image: "https://via.placeholder.com/800x450.png?text=AI+Code+Generator",
+      image: "../public/aiml.png",
       links: { github: "#", demo: "#" },
       category: "AI/ML"
     },
@@ -83,7 +83,7 @@ const Projects = () => {
       title: "Dataflow RAG-Based Customer Service Agent",
       description: "Enterprise-grade Retrieval-Augmented-Generation system for automated customer support using local AI models and FAISS vector store with optimized chunking and embeddings.",
       tags: ["Python", "LangChain", "FAISS", "RAG", "Embeddings"],
-      image: "https://via.placeholder.com/800x450.png?text=RAG+Customer+Agent",
+      image: "../public/aiml.png",
       links: { github: "#", demo: "#" },
       category: "AI/ML"
     },
@@ -91,7 +91,7 @@ const Projects = () => {
       title: "Business Intelligence Multi-Agent Analysis System",
       description: "Automated business analysis using a 3-agent workflow (Data Collector, Analyst, Report Writer) to detect sales trends and generate actionable recommendations.",
       tags: ["Python", "CrewAI", "OpenAI", "Data Analysis"],
-      image: "https://via.placeholder.com/800x450.png?text=BI+Multi-Agent",
+      image: "../public/aiml.png",
       links: { github: "#", demo: "#" },
       category: "AI/ML"
     },
@@ -99,7 +99,7 @@ const Projects = () => {
       title: "Multi-Agent Customer Support System (Support Flow)",
       description: "Multi-agent ticket triage and response system implementing sequential and parallel workflows to handle complex multi-issue tickets. Deployed locally for privacy (no external API dependencies).",
       tags: ["Python", "Microsoft AutoGen", "Ollama", "Multi-Agent"],
-      image: "https://via.placeholder.com/800x450.png?text=Multi-Agent+Support",
+      image: "../public/aiml.png",
       links: { github: "#", demo: "#" },
       category: "AI/ML"
     },
@@ -107,7 +107,7 @@ const Projects = () => {
       title: "Sinhala Sign Language Learning Management System",
       description: "AI-powered LMS for Sinhala Sign Language learners. Real-time hand-gesture recognition using MediaPipe and deep learning; achieved ~87% accuracy.",
       tags: ["Python", "OpenCV", "MediaPipe", "TensorFlow", "NLP"],
-      image: "https://via.placeholder.com/800x450.png?text=SS+LMS",
+      image: "../public/aiml.png",
       links: { github: "#", demo: "#" },
       category: "AI/ML"
     },
@@ -115,7 +115,7 @@ const Projects = () => {
       title: "HPC Optimization for LLM Parallel Prompt Processing",
       description: "Optimized LLM prompt processing using HPC techniques (OpenMP, MPI, hybrid) across C and Python, achieving ~3.27x speedup.",
       tags: ["C", "Python", "OpenMP", "MPI", "HPC"],
-      image: "https://via.placeholder.com/800x450.png?text=HPC+LLM",
+      image: "../public/aiml.png",
       links: { github: "#", demo: "#" },
       category: "AI/ML"
     },
@@ -123,7 +123,7 @@ const Projects = () => {
       title: "Book Prediction System (ML)",
       description: "Book recommendation/prediction system using KNN and Decision Trees with hyperparameter tuning and visualization.",
       tags: ["Python", "scikit-learn", "matplotlib", "seaborn"],
-      image: "https://via.placeholder.com/800x450.png?text=Book+Prediction",
+      image: "../public/aiml.png",
       links: { github: "#", demo: "#" },
       category: "AI/ML"
     },
@@ -132,7 +132,7 @@ const Projects = () => {
       title: "Portfolio Website (VS Code theme)",
       description: "Modern portfolio website with VS Code theme, animations, and interactive elements.",
       tags: ["React", "Framer Motion", "Tailwind"],
-      image: "https://via.placeholder.com/800x450.png?text=Portfolio+Website",
+      image: "../public/web.png",
       links: { github: "#", demo: "#" },
       category: "Web"
     },
@@ -140,7 +140,7 @@ const Projects = () => {
       title: "Complete Responsive Frontend E-commerce Project",
       description: "Fully responsive front-end for an e-commerce site using Next.js and Tailwind CSS — deployed to Vercel.",
       tags: ["Next.js", "Tailwind", "Responsive"],
-      image: "https://via.placeholder.com/800x450.png?text=E-Commerce+Frontend",
+      image: "../public/web.png",
       links: { github: "#", demo: "#" },
       category: "Web"
     },
@@ -148,7 +148,7 @@ const Projects = () => {
       title: "Motel Manager - Full Stack (MERN)",
       description: "Full-stack CRUD motel food management app built with the MERN stack.",
       tags: ["MongoDB", "Express", "React", "Node.js"],
-      image: "https://via.placeholder.com/800x450.png?text=Motel+Manager",
+      image: "../public/web.png",
       links: { github: "#", demo: "#" },
       category: "Web"
     },
@@ -156,7 +156,7 @@ const Projects = () => {
       title: "Pharmacy Products Buying System (Ongoing)",
       description: "Responsive MERN app with prescription-based purchase flow (user must upload valid prescription to buy certain products).",
       tags: ["MERN", "React", "Node.js"],
-      image: "https://via.placeholder.com/800x450.png?text=Pharmacy+System",
+      image: "../public/web.png",
       links: { github: "#", demo: "#" },
       category: "Web"
     },
@@ -164,7 +164,7 @@ const Projects = () => {
       title: "Multi-Tenant SaaS POS System",
       description: "Multi-tenant POS with DB-level tenant isolation and role-based auth using Clerk. Responsive UI built with shadcn/ui.",
       tags: ["NestJS", "Next.js", "MongoDB", "Clerk Auth"],
-      image: "https://via.placeholder.com/800x450.png?text=Multi-Tenant+POS",
+      image: "../public/web.png",
       links: { github: "#", demo: "#" },
       category: "Web"
     },
@@ -172,7 +172,7 @@ const Projects = () => {
       title: "Microservice Ordering App",
       description: "Microservice-based ordering application with synchronous and asynchronous inter-service communication and advanced backend patterns.",
       tags: ["Spring Boot", "Kafka", "Docker", "Microservices"],
-      image: "https://via.placeholder.com/800x450.png?text=Ordering+Microservice",
+      image: "../public/micro.png",
       links: { github: "#", demo: "#" },
       category: "Microservices"
     },
@@ -180,7 +180,7 @@ const Projects = () => {
       title: "Enterprise Microservices Platform",
       description: "Production-grade microservices system with API Gateway, service discovery, event-driven architecture, OAuth2, circuit breakers, distributed tracing, and monitoring.",
       tags: ["Spring Boot", "Spring Cloud", "Kafka", "Docker"],
-      image: "https://via.placeholder.com/800x450.png?text=Enterprise+Microservices",
+      image: "../public/micro.png",
       links: { github: "#", demo: "#" },
       category: "Microservices"
     },
@@ -188,7 +188,7 @@ const Projects = () => {
       title: "BookFair Zone – Microservices Stall Reservation",
       description: "Microservices platform for event stall reservation with real-time updatable map, JWT auth, Kafka-driven events and load balancing.",
       tags: ["Spring Boot", "React", "PostgreSQL", "Kafka"],
-      image: "https://via.placeholder.com/800x450.png?text=BookFair+Zone",
+      image: "../public/micro.png",
       links: { github: "#", demo: "#" },
       category: "Microservices"
     },
@@ -196,7 +196,7 @@ const Projects = () => {
       title: "Kafka Order Analytics Platform",
       description: "Real-time order analytics using Apache Kafka, Avro serialization, fault-tolerant patterns and live dashboard aggregation.",
       tags: ["Kafka", "Avro", "Spring Boot", "WebSocket"],
-      image: "https://via.placeholder.com/800x450.png?text=Kafka+Analytics",
+      image: "../public/micro.png",
       links: { github: "#", demo: "#" },
       category: "Microservices"
     },
@@ -205,7 +205,7 @@ const Projects = () => {
       title: "Jenkins Pipeline for Spring Boot App",
       description: "CI/CD Jenkins pipeline: Checkout, Test & Build, SonarQube analysis & quality gate, package, Docker build and deploy with monitoring.",
       tags: ["Jenkins", "Docker", "SonarQube", "Gradle"],
-      image: "https://via.placeholder.com/800x450.png?text=Jenkins+Pipeline",
+      image: "../public/devops.png",
       links: { github: "#", demo: "#" },
       category: "DevOps / Cloud"
     },
@@ -213,7 +213,7 @@ const Projects = () => {
       title: "Containerize & Deploy (Azure)",
       description: "Dockerized Spring Boot and Node/Express apps and deployed to Azure Container Registry and related services.",
       tags: ["Docker", "Azure", "Cloud"],
-      image: "https://via.placeholder.com/800x450.png?text=Azure+Deploy",
+      image: "../public/devops.png",
       links: { github: "#", demo: "#" },
       category: "DevOps / Cloud"
     },
@@ -221,7 +221,7 @@ const Projects = () => {
       title: "PoS and Inventory Management System (Ongoing)",
       description: "SaaS POS with tenant isolation hosted on AWS; uses modern microservices, Docker and Keycloak for auth.",
       tags: ["NestJS", "Next.js", "Docker", "AWS", "Keycloak"],
-      image: "https://via.placeholder.com/800x450.png?text=PoS+Inventory",
+      image: "../public/devops.png",
       links: { github: "#", demo: "#" },
       category: "DevOps / Cloud"
     },
@@ -230,7 +230,7 @@ const Projects = () => {
       title: "Work Manager – Mobile Application",
       description: "Mobile app for university students to manage tasks; combines many productivity features. Built with Flutter & Firebase.",
       tags: ["Flutter", "Dart", "Firebase"],
-      image: "https://via.placeholder.com/800x450.png?text=Work+Manager+App",
+      image: "../public/mobile.png",
       links: { github: "#", demo: "#" },
       category: "Mobile"
     },
@@ -239,7 +239,7 @@ const Projects = () => {
       title: "Student Management System – Desktop App",
       description: "Desktop application to manage student records using C#, .NET Core, Entity Framework and MySQL.",
       tags: ["C#", ".NET Core", "Entity Framework", "MySQL"],
-      image: "https://via.placeholder.com/800x450.png?text=Student+Mgmt+Desktop",
+      image: "../public/dextop.png",
       links: { github: "#", demo: "#" },
       category: "Desktop"
     },
@@ -248,7 +248,7 @@ const Projects = () => {
       title: "High-Security Voting System",
       description: "Highly secure voting platform with cryptographic authentication, end-to-end encryption, anonymous verifiable elections and brute-force protections.",
       tags: ["Java", "Spring Security", "JWT", "Cryptography"],
-      image: "https://via.placeholder.com/800x450.png?text=Secure+Voting",
+      image: "../public/web.png",
       links: { github: "#", demo: "#" },
       category: "Web"
     },
@@ -257,7 +257,7 @@ const Projects = () => {
       title: "High-Security E-Voting System (alternate listing)",
       description: "Voting platform built with privacy and verifiability in mind; includes MFA, token blacklisting and digital signature verification.",
       tags: ["Java", "Spring Boot", "Cryptography"],
-      image: "https://via.placeholder.com/800x450.png?text=E-Voting",
+      image: "../public/web.png",
       links: { github: "#", demo: "#" },
       category: "Web"
     },
@@ -266,7 +266,7 @@ const Projects = () => {
       title: "Digital Clock, Password Generator & User Creation Scripts",
       description: "Collection of Bash automation scripts: digital clock, password generator, user creation and other admin scripts.",
       tags: ["Bash", "Shell Scripting"],
-      image: "https://via.placeholder.com/800x450.png?text=Bash+Scripts",
+      image: "../public/cripting.png",
       links: { github: "#", demo: "#" },
       category: "Scripting"
     },
@@ -275,7 +275,7 @@ const Projects = () => {
       title: "Kafka Order Analytics (duplicate-safe listing)",
       description: "Order analytics with Kafka and a resilient streaming architecture (included earlier but kept as part of the portfolio).",
       tags: ["Kafka", "Streaming", "Resilience"],
-      image: "https://via.placeholder.com/800x450.png?text=Kafka+Order+Analytics",
+      image: "../public/micro.png",
       links: { github: "#", demo: "#" },
       category: "Microservices"
     },
@@ -284,7 +284,7 @@ const Projects = () => {
       title: "Complete Responsive Frontend E-commerce (duplicate-safe listing)",
       description: "Another complete responsive front-end e-commerce project (kept to reflect multiple front-end implementations).",
       tags: ["Next.js", "Tailwind", "Vercel"],
-      image: "https://via.placeholder.com/800x450.png?text=E-Commerce+Frontend+2",
+      image: "../public/web.png",
       links: { github: "#", demo: "#" },
       category: "Web"
     }
@@ -318,7 +318,7 @@ const Projects = () => {
               className={`px-4 py-2 rounded-lg font-medium transition-all ${selectedCategory === category
                 ? 'bg-[#007acc] text-white shadow-lg'
                 : 'bg-[#252526] text-gray-400 hover:bg-[#2a2a2a] hover:text-white border border-[#3c3c3c]'
-              }`}
+                }`}
             >
               {category}
             </button>

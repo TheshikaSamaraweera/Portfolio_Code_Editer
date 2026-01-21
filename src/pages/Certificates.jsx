@@ -54,11 +54,11 @@ const CertificateModal = ({ cert, onClose }) => (
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0.9, opacity: 0 }}
       onClick={(e) => e.stopPropagation()}
-      className="bg-[#1e1e1e] border border-[#2b2b2c] rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl"
+      className="bg-[#1e1e1e] border border-[#2b2b2c] rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
     >
-      <div className="relative h-64">
-        <img src={cert.image} alt={cert.title} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1e1e1e] to-transparent" />
+      <div className="relative">
+        <img src={cert.image} alt={cert.title} className="w-full h-auto object-contain" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1e1e1e] via-transparent to-transparent" />
         <button
           onClick={onClose}
           className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
@@ -92,12 +92,7 @@ const CertificateModal = ({ cert, onClose }) => (
             </p>
           </div>
 
-          <div className="flex gap-4 pt-4">
-            <button className="flex-1 bg-[#007acc] hover:bg-[#0063a5] text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
-              <FaExternalLinkAlt />
-              Verify Credential
-            </button>
-          </div>
+
         </div>
       </div>
     </motion.div>
@@ -348,8 +343,8 @@ const Certificates = () => {
               key={category}
               onClick={() => setSelectedCategory(category)}
               className={`px-4 py-2 rounded-lg font-medium transition-all ${selectedCategory === category
-                  ? 'bg-[#007acc] text-white shadow-lg'
-                  : 'bg-[#252526] text-gray-400 hover:bg-[#2a2a2a] hover:text-white border border-[#3c3c3c]'
+                ? 'bg-[#007acc] text-white shadow-lg'
+                : 'bg-[#252526] text-gray-400 hover:bg-[#2a2a2a] hover:text-white border border-[#3c3c3c]'
                 }`}
             >
               {category}

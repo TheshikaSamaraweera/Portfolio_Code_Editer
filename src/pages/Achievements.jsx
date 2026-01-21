@@ -36,6 +36,13 @@ const Achievements = () => {
 
         {
             year: "2025",
+            title: "Rexto 2025 Exhibition – Final Year Project Demonstration",
+            description: "Demonstrated final year project at the Rexto 2025 Exhibition held at the University of Ruhuna, Faculty of Engineering.",
+            icon: FaTrophy,
+            color: "text-yellow-500"
+        },
+        {
+            year: "2025",
             title: "HackerRank – Java (Gold Level)",
             description: "Achieved 5-star rating in Java on HackerRank, showcasing advanced proficiency in Java programming.",
             icon: FaStar,
