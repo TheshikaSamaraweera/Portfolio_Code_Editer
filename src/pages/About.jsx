@@ -155,7 +155,7 @@ export default function About() {
                 <div className="flex flex-col sm:flex-row items-center gap-4 mb-4">
                   <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden hover:scale-110 transition-transform flex-shrink-0">
                     <img
-                      src="../public/Theshika.png"
+                      src="/Theshika.png"
                       alt="Profile"
                       className="w-full h-full object-cover"
                     />

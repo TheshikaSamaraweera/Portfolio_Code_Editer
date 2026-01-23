@@ -112,7 +112,7 @@ const Articles = () => {
                 date: "2025-01-10",
                 readTime: "10 min",
                 category: "AI/ML",
-                image: "../public/pframwork.png",
+                image: "/pframwork.png",
                 link: "https://medium.com/@theshikanavod/prompt-engineering-frameworks-complete-systems-for-pro-level-ai-23d33c880e6a"
             },
             {
@@ -121,7 +121,7 @@ const Articles = () => {
                 date: "2025-01-05",
                 readTime: "8 min",
                 category: "AI/ML",
-                image: "../public/ppatterns.png",
+                image: "/ppatterns.png",
                 link: "https://medium.com/@theshikanavod/prompt-patterns-your-toolkit-for-smarter-ai-conversations-bab0b285c67c"
             },
             {
@@ -130,7 +130,7 @@ const Articles = () => {
                 date: "2025-01-02",
                 readTime: "12 min",
                 category: "AI/ML",
-                image: "../public/pbiginers.png",
+                image: "/pbiginers.png",
                 link: "https://medium.com/@theshikanavod/prompt-engineering-for-beginners-the-art-of-talking-to-ai-like-a-pro-bb85306b7b05"
             },
             {
@@ -139,7 +139,7 @@ const Articles = () => {
                 date: "2024-11-25",
                 readTime: "12 min",
                 category: "AI/ML",
-                image: "../public/rdmap.png",
+                image: "/rdmap.png",
                 link: "https://medium.com/@theshikanavod/full-roadmap-to-mastering-ai-agents-c59f71f56529"
             }
         ],
@@ -150,7 +150,7 @@ const Articles = () => {
                 date: "2024-12-28",
                 readTime: "9 min",
                 category: "Backend",
-                image: "../public/api.png",
+                image: "/api.png",
                 link: "https://medium.com/@theshikanavod/7-types-of-apis-you-must-know-in-2025-f9e1cadfae58"
             }
         ],
@@ -161,7 +161,7 @@ const Articles = () => {
                 date: "2024-12-25",
                 readTime: "15 min",
                 category: "Web",
-                image: "../public/sp1 (6).png",
+                image: "/sp1 (6).png",
                 link: "https://medium.com/@theshikanavod/part-7-pagination-sorting-and-filtering-from-zero-to-hero-building-a-full-stack-crud-050a7cf4d8ac"
             },
             {
@@ -170,7 +170,7 @@ const Articles = () => {
                 date: "2024-12-20",
                 readTime: "12 min",
                 category: "Web",
-                image: "../public/sp1 (6).png",
+                image: "/sp1 (6).png",
                 link: "https://medium.com/@theshikanavod/part-6-validation-from-zero-to-hero-building-a-full-stack-crud-application-using-java-spring-15d5ef508339"
             },
             {
@@ -179,7 +179,7 @@ const Articles = () => {
                 date: "2024-12-18",
                 readTime: "10 min",
                 category: "Web",
-                image: "../public/sp1 (5).png",
+                image: "/sp1 (5).png",
                 link: "https://medium.com/@theshikanavod/part-5-exception-handling-from-zero-to-hero-building-a-full-stack-crud-application-using-java-604f90429ad6"
             },
             {
@@ -188,7 +188,7 @@ const Articles = () => {
                 date: "2024-12-15",
                 readTime: "14 min",
                 category: "web",
-                image: "../public/sp1 (4).png",
+                image: "/sp1 (4).png",
                 link: "https://medium.com/@theshikanavod/part-4-securing-your-application-using-spring-security-and-jwt-from-zero-to-hero-building-a-37af0416bec2"
             },
             {
@@ -197,7 +197,7 @@ const Articles = () => {
                 date: "2024-12-12",
                 readTime: "10 min",
                 category: "Web",
-                image: "../public/sp1 (3).png",
+                image: "/sp1 (3).png",
                 link: "https://medium.com/@theshikanavod/from-zero-to-hero-building-a-full-stack-crud-application-using-java-spring-boot-and-react-part-4e6a9c06a743"
             },
             {
@@ -206,7 +206,7 @@ const Articles = () => {
                 date: "2024-12-10",
                 readTime: "9 min",
                 category: "Web",
-                image: "../public/sp1 (2).png",
+                image: "/sp1 (2).png",
                 link: "https://medium.com/@theshikanavod/from-zero-to-hero-building-a-full-stack-crud-application-using-java-spring-boot-and-react-part-9568c409a10d"
             },
             {
@@ -215,7 +215,7 @@ const Articles = () => {
                 date: "2024-12-05",
                 readTime: "8 min",
                 category: "Web",
-                image: "../public/sp1 (1).png",
+                image: "/sp1 (1).png",
                 link: "https://medium.com/@theshikanavod/from-zero-to-hero-building-a-full-stack-crud-application-using-java-spring-boot-and-react-part-1-42b4682fd320"
             }
         ],
@@ -227,7 +227,7 @@ const Articles = () => {
                 date: "2024-11-28",
                 readTime: "10 min",
                 category: "Security",
-                image: "../public/oauth.png",
+                image: "/oauth.png",
                 link: "https://medium.com/@theshikanavod/oauth-2-0-for-beginners-the-real-engine-behind-secure-logins-third-party-access-2dd7dbec7c23"
             },
             {
@@ -236,7 +236,7 @@ const Articles = () => {
                 date: "2024-11-20",
                 readTime: "9 min",
                 category: "Security",
-                image: "../public/jwt.png",
+                image: "/jwt.png",
                 link: "https://medium.com/@theshikanavod/jwt-for-beginners-the-secret-behind-web-authentication-and-api-security-d42c1d951336"
             }
         ],
@@ -247,7 +247,7 @@ const Articles = () => {
                 date: "2024-11-15",
                 readTime: "8 min",
                 category: "Git",
-                image: "../public/git.webp",
+                image: "/git.webp",
                 link: "https://medium.com/@theshikanavod/mastering-git-a-beginners-guide-to-version-control-and-efficient-collaboration-80ca32091ab6"
             }
         ]

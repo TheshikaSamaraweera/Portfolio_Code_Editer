@@ -113,7 +113,7 @@ const Certificates = () => {
       issuer: "School of AI, Udemy",
       date: "2024",
       topic: "AI Agents, Tools, LangChain, LLM Integrations",
-      image: "../public/master.jpg",
+      image: "/master.jpg",
       category: "AI/ML"
     },
     {
@@ -121,7 +121,7 @@ const Certificates = () => {
       issuer: "School of AI, Udemy",
       date: "2024",
       topic: "Context design, RAG, intelligent agent structures",
-      image: "../public/context design.jpg",
+      image: "/context design.jpg",
       category: "AI/ML"
     },
     {
@@ -137,7 +137,7 @@ const Certificates = () => {
       issuer: "School of AI, Udemy",
       date: "2024",
       topic: "Knowledge graphs, generative AI pipelines",
-      image: "../public/knolodge graph.jpg",
+      image: "/knolodge graph.jpg",
       category: "AI/ML"
     },
     {
@@ -145,7 +145,7 @@ const Certificates = () => {
       issuer: "Udemy",
       date: "2024",
       topic: "End-to-end agentic workflows",
-      image: "../public/effectiveagents.jpg",
+      image: "/effectiveagents.jpg",
       category: "AI/ML"
     },
     {
@@ -153,7 +153,7 @@ const Certificates = () => {
       issuer: "Hugging Face",
       date: "2024",
       topic: "OpenAI MCP, tool calling, agent integration",
-      image: "../public/mcp leaders.jpg",
+      image: "/mcp leaders.jpg",
       category: "AI/ML"
     },
     {
@@ -161,7 +161,7 @@ const Certificates = () => {
       issuer: "IBM",
       date: "2023",
       topic: "Python, AI basics, data science foundations",
-      image: "../public/ml.jpg",
+      image: "/ml.jpg",
       category: "AI/ML"
     },
 
@@ -179,7 +179,7 @@ const Certificates = () => {
       issuer: "Udemy",
       date: "2024",
       topic: "Spring Boot, REST APIs, JPA",
-      image: "../public/spring framwork.jpg",
+      image: "/spring framwork.jpg",
       category: "Backend"
     },
     {
@@ -195,7 +195,7 @@ const Certificates = () => {
       issuer: "Cyber Quince, Udemy",
       date: "2024",
       topic: "Socket programming, networking in Java",
-      image: "../public/network app.jpg",
+      image: "/network app.jpg",
       category: "Backend"
     },
 
@@ -213,7 +213,7 @@ const Certificates = () => {
       issuer: "Vapa Academy, Udemy",
       date: "2024",
       topic: "Next.js, Tailwind CSS, frontend systems",
-      image: "../public/next.jpg",
+      image: "/next.jpg",
       category: "Frontend"
     },
     {
@@ -221,7 +221,7 @@ const Certificates = () => {
       issuer: "Udemy",
       date: "2024",
       topic: "JavaScript, DOM, advanced JS",
-      image: "../public/js.jpg",
+      image: "/js.jpg",
       category: "Frontend"
     },
     {
@@ -257,7 +257,7 @@ const Certificates = () => {
       issuer: "IBM",
       date: "2024",
       topic: "Docker, K8s, OpenShift",
-      image: "../public/docker.jpg",
+      image: "/docker.jpg",
       category: "Cloud"
     },
     {
@@ -265,7 +265,7 @@ const Certificates = () => {
       issuer: "School of Devops, Udemy",
       date: "2024",
       topic: "CI/CD pipelines, automation",
-      image: "../public/cicd.jpg",
+      image: "/cicd.jpg",
       category: "Cloud"
     },
 
@@ -285,7 +285,7 @@ const Certificates = () => {
       issuer: "Udemy",
       date: "2024",
       topic: "Version control, Git workflows",
-      image: "../public/git begi.jpg",
+      image: "/git begi.jpg",
       category: "Others"
     },
     {
@@ -293,7 +293,7 @@ const Certificates = () => {
       issuer: "Udemy",
       date: "2023",
       topic: "Git basics, branching",
-      image: "../public/git begi.jpg",
+      image: "/git begi.jpg",
       category: "Others"
     },
     {
