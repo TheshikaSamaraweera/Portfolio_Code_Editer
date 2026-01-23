@@ -113,7 +113,7 @@ const Certificates = () => {
       issuer: "School of AI, Udemy",
       date: "2024",
       topic: "AI Agents, Tools, LangChain, LLM Integrations",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c",
+      image: "../public/master.jpg",
       category: "AI/ML"
     },
     {
@@ -121,7 +121,7 @@ const Certificates = () => {
       issuer: "School of AI, Udemy",
       date: "2024",
       topic: "Context design, RAG, intelligent agent structures",
-      image: "https://images.unsplash.com/photo-1526378722418-9aece8e1f0b4",
+      image: "../public/context design.jpg",
       category: "AI/ML"
     },
     {
@@ -137,7 +137,7 @@ const Certificates = () => {
       issuer: "School of AI, Udemy",
       date: "2024",
       topic: "Knowledge graphs, generative AI pipelines",
-      image: "https://images.unsplash.com/photo-1508385082359-f38ae991e8f2",
+      image: "../public/knolodge graph.jpg",
       category: "AI/ML"
     },
     {
@@ -153,7 +153,7 @@ const Certificates = () => {
       issuer: "Hugging Face",
       date: "2024",
       topic: "OpenAI MCP, tool calling, agent integration",
-      image: "https://images.unsplash.com/photo-1639322537228-f710d846310a",
+      image: "../public/mcp leaders.jpg",
       category: "AI/ML"
     },
     {
@@ -161,7 +161,7 @@ const Certificates = () => {
       issuer: "IBM",
       date: "2023",
       topic: "Python, AI basics, data science foundations",
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f8b0c",
+      image: "../public/ml.jpg",
       category: "AI/ML"
     },
 
@@ -179,7 +179,7 @@ const Certificates = () => {
       issuer: "Udemy",
       date: "2024",
       topic: "Spring Boot, REST APIs, JPA",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c",
+      image: "../public/spring framwork.jpg",
       category: "Backend"
     },
     {
@@ -249,15 +249,15 @@ const Certificates = () => {
       issuer: "Udemy",
       date: "2024",
       topic: "EC2, S3, IAM, cloud fundamentals",
-      image: "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d",
+      image: "",
       category: "Cloud"
     },
     {
-      title: "Containers / Docker / Kubernetes",
+      title: "Docker",
       issuer: "IBM",
       date: "2024",
       topic: "Docker, K8s, OpenShift",
-      image: "https://images.unsplash.com/photo-1553708418-6e3e0a8d2cde",
+      image: "../public/docker.jpg",
       category: "Cloud"
     },
     {
@@ -285,7 +285,7 @@ const Certificates = () => {
       issuer: "Udemy",
       date: "2024",
       topic: "Version control, Git workflows",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c",
+      image: "../public/git begi.jpg",
       category: "Others"
     },
     {
@@ -293,7 +293,7 @@ const Certificates = () => {
       issuer: "Udemy",
       date: "2023",
       topic: "Git basics, branching",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+      image: "../public/git begi.jpg",
       category: "Others"
     },
     {
