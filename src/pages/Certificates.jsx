@@ -145,7 +145,7 @@ const Certificates = () => {
       issuer: "Udemy",
       date: "2024",
       topic: "End-to-end agentic workflows",
-      image: "/effectiveagents.jpg",
+      image: "/effectiveagent.jpg",
       category: "AI/ML"
     },
     {
