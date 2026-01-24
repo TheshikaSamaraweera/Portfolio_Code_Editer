@@ -17,7 +17,7 @@ export default function README() {
                         <h1 className="text-4xl font-bold text-white">Portfolio README</h1>
                     </div>
                     <p className="text-xl text-gray-400">
-                        Welcome to Theshika Samaraweera's Interactive VS Code Portfolio
+                        Welcome to Theshika Navod's Interactive VS Code Portfolio
                     </p>
                 </div>
 

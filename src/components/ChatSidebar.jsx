@@ -121,7 +121,7 @@ export default function ChatSidebar() {
                     </button>
                 </div>
                 <div className="mt-2 text-[10px] text-gray-500 text-center">
-                    Powered by Google Gemini 1.5 Flash
+                    Powered by Google Gemini 2.5 Flash
                 </div>
             </div>
         </div>

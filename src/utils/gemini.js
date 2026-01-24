@@ -9,8 +9,8 @@ let model = null;
 
 if (API_KEY) {
     genAI = new GoogleGenerativeAI(API_KEY);
-    // Using Gemini 2.0 Flash which is the current stable fast model.
-    model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+    // Using Gemini 1.5 Flash (specific version to avoid alias issues)
+    model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 }
 
 /**
@@ -24,7 +24,7 @@ export const sendMessageToGemini = async (history, message) => {
         }
         // Initialize if key was added late
         genAI = new GoogleGenerativeAI(API_KEY);
-        model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+        model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
     }
 
     try {
@@ -67,6 +67,6 @@ Answer concisely based on this context.`
         return response.text();
     } catch (error) {
         console.error("Gemini API Error:", error);
-        return "Sorry, I encountered an error connecting to the AI service. Please try again later.";
+        return `Error connecting to AI service: ${error.message || error.toString()}`;
     }
 };

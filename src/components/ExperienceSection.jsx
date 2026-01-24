@@ -120,7 +120,7 @@ const ExperienceSection = () => {
         {
             company: 'Applantics (Pvt) Ltd',
             role: 'Associate Software Engineer',
-            duration: 'Feb 2025 – Present',
+            duration: 'Jan 2025 – Jan 2026',
             description:
                 'Developing enterprise POS system with microservices for real-time transactions, inventory management, and payment integrations. Building AI-powered RAG chatbots using LangChain and vector databases. Developing analytics dashboards with React + WebSockets. Deploying on Docker + AWS.',
             downloads: '20K+ impact',
@@ -144,7 +144,7 @@ const ExperienceSection = () => {
             logo: 'ISA',
             tech: [
                 'Java 8/11/17', 'Spring Boot', 'Angular', 'React', 'PostgreSQL',
-                 'Redis', 'Kafka', 'gRPC', 'Docker', 'Jenkins', 'JUnit',
+                'Redis', 'Kafka', 'gRPC', 'Docker', 'Jenkins', 'JUnit',
                 'Mockito', 'SonarQube'
             ]
         }
