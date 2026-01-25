@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { VscShield, VscClose } from 'react-icons/vsc';
 import demoVideo from '/demo.mp4';
 
 export default function TrustDialog({ onTrust, onClose }) {
+    const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+    const handleVideoLoad = () => {
+        setIsVideoLoaded(true);
+    };
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
             {/* Backdrop */}
@@ -28,14 +33,21 @@ export default function TrustDialog({ onTrust, onClose }) {
                     </button>
                 </div>
 
-                <div className="p-0">
+                <div className="p-0 relative min-h-[300px] flex items-center justify-center bg-[#1e1e1e]">
+                    {!isVideoLoaded && (
+                        <div className="absolute inset-0 flex flex-col items-center justify-center space-y-3 z-10">
+                            <div className="w-8 h-8 border-2 border-[#007acc] border-t-transparent rounded-full animate-spin"></div>
+                            <p className="text-gray-400 text-sm">Loading demo video...</p>
+                        </div>
+                    )}
                     <video
                         src={demoVideo}
                         autoPlay
                         loop
                         muted
                         playsInline
-                        className="w-full h-auto object-cover"
+                        onLoadedData={handleVideoLoad}
+                        className={`w-full h-auto object-cover transition-opacity duration-500 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
                     />
                 </div>
 
